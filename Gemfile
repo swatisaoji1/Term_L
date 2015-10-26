@@ -60,4 +60,9 @@ group :development do
   gem 'spring'
 end
 
+#==================================================
+# reads the .env file that should contain your creadentials and be added to .gitignore for safety
+#=================================================
+gem 'dotenv-rails', :groups => [:development, :test]
+
 ruby "2.0.0"
