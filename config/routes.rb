@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: {omniauth_callbacks: "omniauth_callbacks", registrations: "registrations"}
+  patch '/user/confirmation' => 'user/confirmations#update', :via => :patch, :as => :update_user_confirmation
   resources :dashboard
   root 'welcome#index'
   # The priority is based upon order of creation: first created -> highest priority.
