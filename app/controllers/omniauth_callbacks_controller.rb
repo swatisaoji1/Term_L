@@ -8,7 +8,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
       sign_in_and_redirect user, notice: "Signed in"
     else
       logger.debug "****** in else block ********"
-      logger.debug user.attributes
+      logger.debug user.attributes.inspect
       session["devise.user_attributes"] = user.attributes
       redirect_to new_user_registration_url
     end

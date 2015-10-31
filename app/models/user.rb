@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
     logger.debug auth.uid
     logger.debug auth.info.inspect
     logger.debug auth.info.email
-    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+    where(provider: auth["provider"], uid: auth["uid"]).first_or_create do |user|
       user.provider = auth.provider
       user.uid = auth.uid
       user.email = auth.info.email
