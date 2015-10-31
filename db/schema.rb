@@ -16,26 +16,6 @@ ActiveRecord::Schema.define(version: 20151028004248) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "books", force: :cascade do |t|
-    t.string   "title"
-    t.string   "author_first_name"
-    t.string   "author_last_name"
-    t.integer  "quantity"
-    t.boolean  "for_rent"
-    t.boolean  "for_buy"
-    t.float    "cost_rent"
-    t.float    "cost_buy"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
-    t.text     "description"
-  end
-
-  create_table "tests", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -47,6 +27,10 @@ ActiveRecord::Schema.define(version: 20151028004248) do
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string   "unconfirmed_email"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "provider"
