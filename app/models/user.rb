@@ -19,13 +19,16 @@ class User < ActiveRecord::Base
       return user
     end
     
-    where(provider: auth["provider"], uid: auth["uid"]).first_or_create do |newuser|\
+    where(provider: auth["provider"], uid: auth["uid"]).first_or_create do |newuser|
+      logger.debug "Creating new user"
       newuser.skip_confirmation!
       newuser.provider = auth["provider"]
       newuser.uid = auth["uid"]
       newuser.email = auth["info"]["email"]
       newuser.password = Devise.friendly_token[0,20]
-      newuser.name = auth ["info"]["name"]
+      
+      logger.debug "name: " + auth["info"]["name"]
+      newuser.name = auth["info"]["name"]
     end
   end
   
