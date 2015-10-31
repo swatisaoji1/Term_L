@@ -1,7 +1,7 @@
 class OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def all
     logger.debug "I am in method ********facebook****************"
-    logger.debug User.from_omniauth(request.env["omniauth.auth"]).inspect
+    logger.debug User.from_omniauth(request.env["omniauth.auth"]).attributes
     user = User.from_omniauth(request.env["omniauth.auth"])
     if user.persisted?
       logger.debug user.email

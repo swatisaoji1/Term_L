@@ -6,6 +6,9 @@ class User < ActiveRecord::Base
          
          
   def self.from_omniauth(auth)
+    logger.debug "*****************in from_omniauth************"
+    logger.debug auth.provider
+    logger.debug auth.uid
     where(auth.slice(provider: auth.provider, uid: auth.uid)).first_or_create do |user|
       user.provider = auth.provider
       user.uid = auth.uid
