@@ -3,6 +3,9 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     logger.debug "I am in method ********facebook****************"
     logger.debug User.from_omniauth(request.env["omniauth.auth"]).inspect
     user = User.from_omniauth(request.env["omniauth.auth"])
+    sign_in_and_redirect user, notice: "Signed in"
+  end    
+=begin    
     if user.persisted?
       logger.debug user.email
       sign_in_and_redirect user, notice: "Signed in"
@@ -14,7 +17,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     end
   end
   
-  
+=end  
 
   alias_method :facebook, :all
 end
