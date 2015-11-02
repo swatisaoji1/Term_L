@@ -10,7 +10,7 @@ default: &default
   host: localhost
   pool: 5
   username: amruta1209
-  password: 
+  password: chelsea12
 
 development:
   <<: *default
