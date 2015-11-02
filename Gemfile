@@ -14,6 +14,8 @@ gem 'coffee-rails', '~> 4.1.0'
 # gem 'therubyracer', platforms: :ruby
 
 #=====================================
+#Bootstrap
+gem 'bootstrap-sass', '~> 3.3', '>= 3.3.5.1'
 # login module
 gem 'devise'
 

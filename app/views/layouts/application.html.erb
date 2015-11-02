@@ -8,6 +8,9 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+
+	<%= render partial: "shared/navbar" %>
+	
 	<div id="user_nav">
 		<% if user_signed_in? %>
 			Signed in as <%= current_user.name %>. Not you?
