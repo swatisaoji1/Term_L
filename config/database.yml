@@ -11,7 +11,7 @@ default: &default
   timeout: 5000
   host: localhost
   username: harini
-  password: Riya0612
+  password: Riya0612  
 
 development:
   <<: *default

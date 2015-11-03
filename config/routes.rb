@@ -3,6 +3,11 @@ Rails.application.routes.draw do
   patch '/users/confirmation' => 'devise/confirmations#update', :via => :patch, :as => :update_user_confirmation
   resources :dashboard
   root 'welcome#index'
+  get '/MyCart' => 'welcome#mycart'
+  get '/WishList' => 'welcome#wishlist'
+  get '/Catalog' => 'welcome#catalog'
+  get '/PostABook' => 'welcome#postabook'
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
