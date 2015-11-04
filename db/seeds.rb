@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-b1 = Book.create(title: "Persuasion", isbn: "978-1481411257", tags: "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/george-clooney.jpg", bio: "George Timothy Clooney is an American actor, writer, producer, director, and activist. He has received three Golden Globe Awards for his ...")
+b1 = Book.create(title: "Persuasion", isbn: "978-1481411257", tags: ["Best-seller", "Cubs", "Bears"], description: "skillfully blends rich magic and folklore with adventure, sweeping romance, and hidden treasure", image_path: "http://d.gr-assets.com/books/1423146561l/23450710.jpg", edition: "3rd edition", price: 11.5, quantity: 1)
 a2 = Actor.create(first_name: "Matt", last_name: "Damon", image: "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/matt-damon.jpg", bio: "Matthew Paige \"Matt\" Damon is an American actor, voice actor, screenwriter, producer, and philanthropist.")
 a3 = Actor.create(first_name: "Brad", last_name: "Pitt", image: "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/brad-pitt.jpg", bio: "William Bradley \"Brad\" Pitt is an American actor and producer. He has received a Golden Globe Award, a Screen Actors Guild Award, and thr...")
 a4 = Actor.create(first_name: "Elliot", last_name: "Gould", image: "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/elliot-gould.jpg", bio: "Elliott Gould is an American actor. He began acting in Hollywood films during the 1960s, and has remained prolific ever since. ")

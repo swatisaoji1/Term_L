@@ -11,10 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151102032320) do
+ActiveRecord::Schema.define(version: 20151104042457) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "authors", force: :cascade do |t|
+    t.string   "first_name", null: false
+    t.string   "last_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "authors_books", id: false, force: :cascade do |t|
+    t.integer "author_id"
+    t.integer "book_id"
+  end
+
+  add_index "authors_books", ["author_id"], name: "index_authors_books_on_author_id", using: :btree
+  add_index "authors_books", ["book_id"], name: "index_authors_books_on_book_id", using: :btree
 
   create_table "books", force: :cascade do |t|
     t.string   "title",                    null: false
@@ -26,6 +41,7 @@ ActiveRecord::Schema.define(version: 20151102032320) do
     t.float    "price",                    null: false
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
+    t.integer  "quantity"
   end
 
   create_table "books_categories", id: false, force: :cascade do |t|
