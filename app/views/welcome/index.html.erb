@@ -3,11 +3,11 @@
 <!--  This code gets plugged into layout -->
 
 <div class="container marketing">
-    <div class="row">            
-        <div class="col-lg-6" style="width:700px; height:500px; background-color: #D3D3D3; border-radius: 25px; margin: 30px 20px 20px 20px;">
-        	<div style="width:620px; height:200px; background-color: #f2f2f2; margin: 30px 20px 20px 20px">
-        		<p style="font-size: 18px; padding-left: 10px;"><strong>Welcome to Team L page - BOOK MATE </strong></p>
-        		<p style="font-size: 15px; padding-left: 10px;">Come Back to see the awesome stuff soon !!</p>
+              
+        <div class="col-lg-5">
+        	<div class="row">  
+        		<strong>Welcome to Team L page - BOOK MATE </strong>
+        		<p >Come Back to see the awesome stuff soon !!</p>
         		<p>
         		<ul>
 					<li>Nidhi</li>
@@ -17,15 +17,23 @@
 				</ul>
         		</p>
         	</div>
-        	<div style="width:620px; height:100px; background-color: #f2f2f2; margin: 20px 20px 20px 20px">
-        		<p style="font-size: 18px; padding-left: 10px;"><strong>Most Bought/Rented</strong></p>
+        	<div class="row">  
+        		<p ><strong>Most Bought/Rented</strong></p>
         	</div>
-        	<div style="width:620px; height:100px; background-color: #f2f2f2; margin: 20px 20px 20px 20px">
-        		<p style="font-size: 18px; padding-left: 10px;"><strong>Trending now</strong></p>
+        	<div class="row">  
+        		<p><strong>Trending now</strong></p>
         	</div>
         </div>
-        <div class="col-lg-6" style="width:370px; height:500px; background-color: #D3D3D3; border-radius: 25px; margin: 30px 20px 20px 20px;">
-        	<div style="width:300px; height:430px; background-color: #f2f2f2; margin: 40px 20px 40px 20px">
+        <div class="col-lg-5 pull-right" >
+        	<div >
+                <strong>Have a book for sale or rent? <p>Want to see the latest book offerings by your friend?</p>
+                Login or register to continue!!<strong>
+                <p>Have an account?</p>
+                <a class="btn btn-default" href="/users/sign_in" role="button">Sign In</a>
+                <p>Don't have an account? Would you like to register?</p>
+                <a class="btn btn-default" href="/users//users/sign_up" role="button">Sign Out</a>
+                <p>Login with your facebook profile?</p>
+                <a class="btn btn-default" href="/users/sign_in" role="button">Login with facebook</a>
                 <% if user_signed_in? %>
                     Signed in as <%= current_user.name %>. Not you?
                     <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
@@ -36,5 +44,5 @@
                 <% end %>
         	</div>
         </div>
-    </div>
+    
 </div>
