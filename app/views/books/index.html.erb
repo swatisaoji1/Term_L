@@ -1,0 +1,18 @@
+<div class="main">
+  <div class="List">
+  <h2>Availble Books</h2>
+
+    <!--
+    To do: Loop through movies and display each one with this HTML-->
+    <% @books.each do |book| %>
+    <div class="book">
+        <%= image_tag book.image_path %>
+        <h3> <%= book.title %> </h3>
+        <p> ISBN: <%= book.isbn %> </p>
+        <p> Price: $<%= book.price %> </p>
+        <p> Quantity: <%= book.quantity %></p>
+    </div>
+    <% end %>
+      
+  </div>
+</div>
