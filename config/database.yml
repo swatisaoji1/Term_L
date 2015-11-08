@@ -11,8 +11,8 @@ default: &default
   pool: 5
   timeout: 5000
   host: localhost
-  username: harini
-  password: Riya0612  
+  username: teaml
+  password: teaml  
 
 
 development:

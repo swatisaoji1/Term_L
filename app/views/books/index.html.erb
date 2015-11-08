@@ -6,11 +6,19 @@
     To do: Loop through movies and display each one with this HTML-->
     <% @books.each do |book| %>
     <div class="book">
+      <div id="book-image" class = "center">
         <%= image_tag book.image_path %>
-        <h3> <%= book.title %> </h3>
-        <p> ISBN: <%= book.isbn %> </p>
-        <p> Price: $<%= book.price %> </p>
-        <p> Quantity: <%= book.quantity %></p>
+      </div>
+        <div id = "book-details" class = "center">
+          <h3> <%= book.title %> </h3>
+          <p> ISBN: <%= book.isbn %> </p>
+          <p> Price: $<%= book.price %> </p>
+          <p> Quantity: <%= book.quantity %></p>
+          
+        </div>
+    </div>
+    <div class = "add-to-cart">
+      <a>Add to Cart</a>
     </div>
     <% end %>
       
