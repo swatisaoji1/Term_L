@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get '/WishList' => 'welcome#wishlist'
   get '/Catalog' => 'welcome#catalog'
   get '/PostABook' => 'welcome#postabook'
-  get 'books' => 'books#index'
+  get '/books' => 'books#index'
   get '/About' => 'welcome#about'
   get 'books/:id' =>'books#show', as: :book
   # The priority is based upon order of creation: first created -> highest priority.
