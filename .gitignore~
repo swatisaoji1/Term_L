@@ -18,3 +18,4 @@
 
 #ignore other imp files
 .env
+.gitignore

@@ -73,3 +73,5 @@ end
 gem 'dotenv-rails', :groups => [:development, :test]
 
 ruby "2.0.0"
+
+gem 'pusher'
