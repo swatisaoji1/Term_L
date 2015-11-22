@@ -111,4 +111,3 @@ b9.authors << [a10]
 b10.categories << [c1, c4, c14, c22, c23]
 b10.publishers << [p9]
 b10.authors << [a11]
-
