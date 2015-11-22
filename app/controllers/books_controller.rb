@@ -16,6 +16,11 @@ class BooksController < ApplicationController
  
   def create
    @book = Book.new(book_params)
+   @id = current_user.id
+   logger.debug "The user id : "
+   logger.debug @id
+
+   puts @id
    if @book.save
      redirect_to books_path, :notice => "Your Book Was Posted"
    else
@@ -24,6 +29,6 @@ class BooksController < ApplicationController
   end
    private
  def book_params
-   params.require(:book).permit(:title, :description, :isbn, :image_path, :price)
+   params.require(:book).permit(:title, :description, :isbn, :image_path, :price, :quantity)
  end
 end

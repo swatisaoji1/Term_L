@@ -2,7 +2,11 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {omniauth_callbacks: "omniauth_callbacks", registrations: "registrations"}
   patch '/users/confirmation' => 'devise/confirmations#update', :via => :patch, :as => :update_user_confirmation
   resources :dashboard
-  resources :books
+  authenticate :user do
+    resources :books, only: [:new, :create, :edit, :update, :destroy]
+  end
+  resources :books, only: [:index, :show]
+  
   root 'welcome#index'
   get '/MyCart' => 'welcome#mycart'
   get '/WishList' => 'welcome#wishlist'
