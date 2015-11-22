@@ -9,7 +9,7 @@ class BooksController < ApplicationController
     @publishers = @book.publishers
     @authors = @book.authors
   end
-  
+
   def new
    @book = Book.new
   end

@@ -12,7 +12,9 @@ Rails.application.routes.draw do
   get '/WishList' => 'welcome#wishlist'
   get '/Catalog' => 'welcome#catalog'
   get '/PostABook' => 'welcome#postabook'
+  get '/books' => 'books#index'
   get '/About' => 'welcome#about'
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
