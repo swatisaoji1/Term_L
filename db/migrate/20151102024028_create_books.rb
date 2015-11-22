@@ -8,6 +8,7 @@ class CreateBooks < ActiveRecord::Migration
       t.string :image_path
       t.string :edition
       t.float :price, null: false
+      t.integer :quantity, null:false
       t.timestamps null: false
     end
   end

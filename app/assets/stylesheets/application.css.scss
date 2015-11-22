@@ -21,25 +21,65 @@ h1{
 	font-family: verdana;
 }
 
-.book{
-	height: 100px;
-	text-align: left;
-	width: 400px;
-	overflow: hidden;
-	disply: block;
-	margin-bottom: 10px;
+.book {
+  border-radius: 25px;
+  border: 2px solid #D3D3D3;
+  height: 122px;
+  width: 800px;
+  text-align: left;
+  margin: 5px;
 }
 
-.center {
-     float: none;
-     margin-left: auto;
-     margin-right: auto;
+.center{
+  display: inline-block;
+  border-radius: 25px;
+  height: 105px;
+  margin-top:5px;
+  margin-left: 5px;
+  vertical-align: middle;
 }
 
 
-.book img{
-	height: 100px;
-	float: left;
-	margin-right: 10px;
-	margin-left: 10px;
+#book-image{
+  width: 100px;
+}
+#book-details{
+  width: 450px;
+  padding-left: 10px;
+}
+#add-to-cart{
+  width: 205px;
+}
+#book-image img{
+  width: 100px;
+  height: 105px;
+  border-radius: 25px;
+}
+#book-details h3{
+  margin-top: 5px;
+  margin-bottom:0;
+}
+#book-details p{
+  margin-top: 0;
+  margin-bottom:0;
+  font-size: 14px;
+}
+
+#add-to-cart a{
+  text-transform: uppercase;
+  font-size: 16px;
+  background-color: #D3D3D3;
+  width: 200px;
+  height: 50px;
+  margin-top: 20px;
+  margin-left: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.info{
+margin: 10px;
+  
 }
