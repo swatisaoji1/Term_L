@@ -13,7 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20151109034222) do
 
-
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -21,6 +20,9 @@ ActiveRecord::Schema.define(version: 20151109034222) do
     t.integer "user_id", null: false
     t.integer "book_id", null: false
   end
+
+  add_index "Books_Users", ["book_id", "user_id"], name: "index_Books_Users_on_book_id_and_user_id", using: :btree
+  add_index "Books_Users", ["user_id", "book_id"], name: "index_Books_Users_on_user_id_and_book_id", using: :btree
 
   create_table "authors", force: :cascade do |t|
     t.string   "first_name", null: false
@@ -124,6 +126,10 @@ ActiveRecord::Schema.define(version: 20151109034222) do
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string   "unconfirmed_email"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "provider"
