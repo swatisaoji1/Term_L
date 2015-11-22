@@ -14,9 +14,6 @@ default: &default
   username: teaml
   password: teaml  
 
-  username: test
-  password: test 
-
 
 development:
   <<: *default
