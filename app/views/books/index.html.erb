@@ -1,0 +1,26 @@
+<div class="main">
+  <div class="list">
+  <h2>Available Books</h2>
+    <% @books.each do |book| %>
+      <div class="book">
+        <div id="book-image" class = "center">
+          <%= image_tag book.image_path %>
+        </div>
+        <div id = "book-details" class = "center">
+          <h3> <%= book.title %> </h3>
+          <p> Price: $<%= book.price %> </p>
+          <p> Quantity: <%= book.quantity %></p>
+          <p> Avialable for: <%= book.sale_type %></p>
+          <%= link_to "More Details", book_path(book) %>
+        </div>
+        <div id = "add-to-cart" class = "center">
+          <br/>
+          <a> Add to Wishlist </a>
+          <br/><br/>
+          <a>Add to Cart</a> 
+        </div>
+      </div>
+    <% end %>
+    <br/><br/><br/><br/><br/>     
+  </div>
+</div>

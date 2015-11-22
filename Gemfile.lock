@@ -37,9 +37,21 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     arel (6.0.3)
+<<<<<<< HEAD
     bcrypt (3.1.10)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+=======
+    autoprefixer-rails (6.0.3)
+      execjs
+      json
+    bcrypt (3.1.10)
+    binding_of_caller (0.7.2)
+      debug_inspector (>= 0.0.1)
+    bootstrap-sass (3.3.5.1)
+      autoprefixer-rails (>= 5.0.0.1)
+      sass (>= 3.3.0)
+>>>>>>> working
     builder (3.2.2)
     byebug (6.0.2)
     coffee-rails (4.1.0)
@@ -69,6 +81,10 @@ GEM
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     hashie (3.4.2)
+<<<<<<< HEAD
+=======
+    httpclient (2.7.0.1)
+>>>>>>> working
     i18n (0.7.0)
     jbuilder (2.3.2)
       activesupport (>= 3.0.0, < 5)
@@ -108,6 +124,14 @@ GEM
       omniauth (~> 1.2)
     orm_adapter (0.5.0)
     pg (0.18.3)
+<<<<<<< HEAD
+=======
+    pusher (0.15.1)
+      httpclient (~> 2.5)
+      multi_json (~> 1.0)
+      pusher-signature (~> 0.1.8)
+    pusher-signature (0.1.8)
+>>>>>>> working
     rack (1.6.4)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -204,6 +228,10 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+<<<<<<< HEAD
+=======
+  bootstrap-sass (~> 3.3, >= 3.3.5.1)
+>>>>>>> working
   byebug
   coffee-rails (~> 4.1.0)
   devise
@@ -212,6 +240,10 @@ DEPENDENCIES
   jquery-rails
   omniauth-facebook
   pg
+<<<<<<< HEAD
+=======
+  pusher
+>>>>>>> working
   rails (= 4.2.4)
   rails_12factor
   rspec-rails

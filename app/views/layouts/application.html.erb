@@ -2,12 +2,17 @@
 <html>
 <head>
   <title>Book Mate</title>
+<<<<<<< HEAD
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+=======
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+>>>>>>> working
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <!-- figure out data-turbolink - it might create trouble with js  -->
   <%= csrf_meta_tags %>
 </head>
 <body>
+<<<<<<< HEAD
 	<div id="user_nav">
 		<% if user_signed_in? %>
 			Signed in as <%= current_user.name %>. Not you?
@@ -26,6 +31,15 @@
 	
    	
    	
+=======
+
+	<%= render partial: "shared/navbar" %>
+
+	<% flash.each do |name, msg|%>
+		<%= content_tag :div, msg, :id => "flash_#{name}" %>
+	<% end %>
+
+>>>>>>> working
 	<%= yield %>
 
 </body>

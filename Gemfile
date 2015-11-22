@@ -14,6 +14,9 @@ gem 'coffee-rails', '~> 4.1.0'
 # gem 'therubyracer', platforms: :ruby
 
 #=====================================
+#Bootstrap
+gem 'bootstrap-sass', '~> 3.3', '>= 3.3.5.1'
+
 # login module
 gem 'devise'
 
@@ -69,5 +72,8 @@ end
 # reads the .env file that should contain your creadentials and be added to .gitignore for safety
 #=================================================
 gem 'dotenv-rails', :groups => [:development, :test]
+gem 'pusher'
 
 ruby "2.0.0"
+
+
