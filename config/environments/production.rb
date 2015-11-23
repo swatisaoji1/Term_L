@@ -78,7 +78,8 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
   
   #config.action_mailer.default_url_options = { host: 'http://swatibookmate.herokuapp.com', port: 80 }
-  config.action_mailer.default_url_options = { host: 'http://csc867bookmate.herokuapp.com', port: 80 }
+  #config.action_mailer.default_url_options = { host: 'http://csc867bookmate.herokuapp.com', port: 80 }
+  config.action_mailer.default_url_options = { host: 'http://rubybookmates.herokuapp.com', port: 80 }
    # email delivery method 
   config.action_mailer.delivery_method = :smtp
   
