@@ -1,0 +1,28 @@
+<h1><b>My Cart</b></h1>
+
+<% if @cart.empty?%>
+	<p><b>Your cart is currently empty</b><p>
+<%else%>
+	<%= link_to 'Empty your cart', cart_clear_path%>
+<%end%>
+
+<br><br><br>
+
+<%total = 0 %>
+<ul>
+<% @cart.each do |id, quantity| %>
+	<%book = Book.find_by_id(id)%>
+
+	<li>
+		<%= link_to book.title, book %>
+		<p><%= book.description %></p>
+		<p><%= image_tag(book.image_path, size: "100x150") %></p>	
+
+		<p><%= number_to_currency(book.price, :unit => '$')%> </p>
+		<p>Quantity: <%=quantity %> </p>
+
+	</li>
+	<%total = total + (quantity * book.price) %>
+<%end%>	
+<p> <b> Total Amount <%= number_to_currency(total, :unit => '$')%></b></p>
+</ul>
