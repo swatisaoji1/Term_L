@@ -2,7 +2,11 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {omniauth_callbacks: "omniauth_callbacks", registrations: "registrations"}
   patch '/users/confirmation' => 'devise/confirmations#update', :via => :patch, :as => :update_user_confirmation
   resources :dashboard
-  resources :books
+  authenticate :user do
+    resources :books, only: [:new, :create, :edit, :update, :destroy]
+  end
+  resources :books, only: [:index, :show]
+  
   root 'welcome#index'
   get '/MyCart' => 'welcome#mycart'
   get '/WishList' => 'welcome#wishlist'
@@ -10,8 +14,7 @@ Rails.application.routes.draw do
   get '/PostABook' => 'welcome#postabook'
   get '/books' => 'books#index'
   get '/About' => 'welcome#about'
-  # get 'books/:id' =>'books#show', as: :book
-  # get 'books/new' =>'books#new'
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
