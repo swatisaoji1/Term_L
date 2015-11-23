@@ -5,6 +5,7 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find(params[:id])
+    @user = User.find_by_id(@book.user_id)
     @categories = @book.categories
     @publishers = @book.publishers
     @authors = @book.authors

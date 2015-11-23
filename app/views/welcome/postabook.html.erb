@@ -2,5 +2,8 @@
  
   <div class="center-block" style="width:500px; height:300px; background-color: #f2f2f2; margin-top:40px">
     Wait for some time!
+    <% if user_signed_in? %>
+  <div>Signed in as... <%= current_user.email %></div>
+<% end %>
   </div>
 </div>
