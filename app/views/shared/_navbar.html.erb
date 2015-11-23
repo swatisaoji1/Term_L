@@ -29,7 +29,7 @@
   			<li><a>Welcome <%= current_user.name %></a></li>
 			<li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
 		<% else %>
-			<li><a href="/users/sign_in">Login</a></li> |
+			<li><a href="/users/sign_in">Login</a></li>
 			<li><a href="/users/sign_up">Sign Up</a></li>
 		<% end %>
         <li><a href="/WishList">Wishlist</a></li>

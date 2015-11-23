@@ -1,1 +1,35 @@
-<h1 class="text-center">Welcome <%= current_user.name %></h1>
+
+<div class="container">
+	<h4>Welcome to your Dashboard</h4>
+	Signed in as <%= current_user.name %>. Not you?
+	<%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+</div>
+<hr/>
+<div class="container">
+	<div class="row">
+		<div class="col-xs-3">
+			<ul class="nav nav-pills nav-stacked">
+				<li role="presentation" class="active"><a href="#notifications" data-toggle="tab" >Updates</a></li>
+			  <li role="presentation"><a href="#profile" data-toggle="tab" >Profile</a></li>
+			  <li role="presentation"><a href="#postings" data-toggle="tab">My Postings</a></li>
+			</ul>
+		</div>
+		<div class="col-xs-8">
+			<div class="tab-content">
+				<div class="tab-pane active" id="notifications">
+					Some awesome information
+				</div>
+				<div class="tab-pane" id="profile">
+					<%= render 'users/registrations/edit'%>
+				</div>
+				<div class="tab-pane" id="postings">
+					List of books posted by me
+				</div>
+			</div>
+			
+		</div>
+	</div>
+
+</div>
+
+
