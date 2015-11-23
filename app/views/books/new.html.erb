@@ -1,37 +1,49 @@
 
-<h2>Add a Book</h2>
-<p> </p>
-<%= form_for @book do |f| %>
-<p> 
-<%= f.label :title %> <br/>
-<%= f.text_field :title %>
-</p>
-<p> 
-<%= f.label :isbn %> <br/>
-<%= f.text_field :isbn %>
-</p>
-
-<p> 
-<%= f.label :description %> <br/>
-<%= f.text_field :description %>
-</p>
-
-<p> 
-<%= f.label :image_path %> <br/>
-<%= f.text_field :image_path %>
-</p>
-
-<p> 
-<%= f.label :price %> <br/>
-<%= f.text_field :price %>
-</p>
-
-<p> 
-<%= f.label :quantity %> <br/>
-<%= f.text_field :quantity %>
-</p>
-
-<p> 
-<%= f.submit "Add Book" %>
-</p>
-<% end %>
+<h2 class="text-center">Got a book for rent or sale?</h2>
+<h4 class="text-center">Post it here for your friends to see!</h4>
+<br/>
+<div class="col-lg-4 col-lg-offset-4">
+<br/>
+<br/>
+	<form>
+		<%= form_for @book do |f| %>
+		  <div class="row">
+		  	<div class="col-xs-1"></div>
+		   	<div class="col-xs-3 text-left"><%= f.label :title %></div>
+			<div class="col-xs-7 text-right"><%= f.text_field :title %></div>
+		  </div>
+		  <br/>
+		  <div class="row">
+		  	<div class="col-xs-1"></div>
+		    <div class="col-xs-3 text-left"><%= f.label :isbn %></div>
+			<div class="col-xs-7 text-right"><%= f.text_field :isbn %></div>
+		  </div>
+		  <br/>
+		  <div class="row">
+		  	<div class="col-xs-1"></div>
+		    <div class="col-xs-3 text-left"><%= f.label :description %></div>
+			<div class="col-xs-7 text-right"><%= f.text_field :description %></div>
+		  </div>
+		  <br/>
+		  <div class="row">
+		  	<div class="col-xs-1"></div>
+		    <div class="col-xs-3 text-left"><%= f.label :image_path %></div> 
+			<div class="col-xs-7 text-right"><%= f.text_field :image_path %></div>	
+		  </div>
+		  <br/>
+		  <div class="row">
+		  	<div class="col-xs-1"></div>
+		    <div class="col-xs-3 text-left"><%= f.label :price %></div> 
+			<div class="col-xs-7 text-right"><%= f.text_field :price %></div>	
+		  </div>
+		  <br/>
+		  <div class="row">
+		  	<div class="col-xs-1"></div>
+		    <div class="col-xs-3 text-left"><%= f.label :quantity %></div> 
+			<div class="col-xs-7 text-right"><%= f.text_field :quantity %></div>
+		  </div>
+		  <br/>
+		  <div class="col-xs-12 text-center"><%= f.submit "Add Book" %></div>
+		<% end %>
+	</form>
+</div>
