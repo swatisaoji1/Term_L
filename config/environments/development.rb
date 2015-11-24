@@ -1,3 +1,4 @@
+require 'amazon/ecs'
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -55,5 +56,7 @@ Rails.application.configure do
   
   #additional configuratio --device
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  
+  
   
 end

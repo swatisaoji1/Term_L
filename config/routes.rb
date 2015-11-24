@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   end
   resources :books, only: [:index, :show]
   
+ 
+  
   root 'welcome#index'
   get '/MyCart' => 'welcome#mycart'
   get '/WishList' => 'welcome#wishlist'
@@ -21,6 +23,7 @@ Rails.application.routes.draw do
   get '/cart/clear' => 'cart#clearCart'
   get 'cart/:id' => 'cart#add'
   
+  get '/amazon' => 'amazon#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
