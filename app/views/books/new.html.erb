@@ -2,13 +2,13 @@
 <h2 class="text-center">Got a book for rent or sale?</h2>
 <h4 class="text-center">Post it here for your friends to see!</h4>
 <div class="container">
-		<%= bootstrap_form_for @book do |f| %>
-			<%= f.text_field :title, hide_label: true, placeholder: 'Awesome title' %>
-			<%= f.text_field :isbn, hide_label: true, placeholder: 'ISBN'%>
-			<%= f.text_field :description, hide_label: true, placeholder: 'Tell us more about the book'%>
-		  	<%= f.text_field :image_path, hide_label: true, placeholder: 'Add URL to the image'%>
-			<%= f.text_field :price, hide_label: true, placeholder: 'Cost' %>
-			<%= f.text_field :quantity,hide_label: true, placeholder: 'Quantity' %>
-			<%= f.submit "Add Book" %></div>
-		<% end %>
+	<%= bootstrap_form_for @book do |f| %>
+		<%= f.text_field :title, hide_label: true, placeholder: 'Awesome title' %>
+		<%= f.text_field :isbn, hide_label: true, placeholder: 'ISBN'%>
+		<%= f.text_field :description, hide_label: true, placeholder: 'Tell us more about the book'%>
+	  	<%= f.text_field :image_path, hide_label: true, placeholder: 'Add URL to the image'%>
+		<%= f.text_field :price, hide_label: true, placeholder: 'Cost' %>
+		<%= f.text_field :quantity,hide_label: true, placeholder: 'Quantity' %>
+		<%= f.submit "Add Book" %></div>
+	<% end %>
 </div>
