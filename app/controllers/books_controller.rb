@@ -1,3 +1,4 @@
+
 class BooksController < ApplicationController
   def index
   	@books = Book.all
@@ -18,12 +19,14 @@ class BooksController < ApplicationController
   def create
    @book = Book.new(book_params)
    @id = current_user.id
-   logger.debug "The user id : "
-   logger.debug @id
-
-   puts @id
+  
    if @book.save
      redirect_to books_path, :notice => "Your Book Was Posted"
+     @message = current_user.name << " Posted a book " << @book.title 
+     Pusher.trigger('test_channel', 'my_event', {
+      message: @message
+      })
+     
    else
      render "new"
    end

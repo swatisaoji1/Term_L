@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require_self
+ *= require toastr
  */
 
 @import "bootstrap";
@@ -84,3 +85,10 @@ margin: 10px;
   
 }
 
+.news{
+  margin-top: 10px;
+  margin-right:5px;
+  box-shadow: 0 0 5px gray;
+    padding:0 15px 0 15px;
+    min-height: 300px;
+}

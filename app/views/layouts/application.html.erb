@@ -5,17 +5,47 @@
 
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <script src="//js.pusher.com/3.0/pusher.min.js"></script>
   <!-- figure out data-turbolink - it might create trouble with js  -->
   <%= csrf_meta_tags %>
+  
+  
+  
+  
+  
+  
+  
 </head>
 <body>
 	<%= render partial: "shared/navbar" %>
-
-	<% flash.each do |name, msg|%>
-		<%= content_tag :div, msg, :id => "flash_#{name}" %>
-	<% end %>
 	
-	<%= yield %>
+			<script type="text/javascript">
+			    // Enable pusher logging - don't include this in production
+			    Pusher.log = function(message) {
+			      if (window.console && window.console.log) {
+			        window.console.log(message);
+			      }
+			    };
+			
+			    var pusher = new Pusher('6db6086499b19a5437e9', {
+			      encrypted: true
+			    });
+			    var channel = pusher.subscribe('test_channel');
+			    channel.bind('my_event', function(data) {	
+					toastr.success(data.message);
+			    });
+
+			  </script>
+				
+				
+				<% flash.each do |name, msg|%>
+				<%= content_tag :div, msg, :id => "flash_#{name}" %>
+				<% end %>
+				
+				<%= yield %>
+				
+		
+	
 
 </body>
 </html>

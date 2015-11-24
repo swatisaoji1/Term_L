@@ -73,6 +73,7 @@ end
 #=================================================
 gem 'dotenv-rails', :groups => [:development, :test]
 gem 'pusher'
+gem 'toastr-rails'
 
 ruby "2.0.0"
 
