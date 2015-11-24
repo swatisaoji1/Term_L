@@ -14,6 +14,9 @@ class CartController < ApplicationController
   	 else
   	 	cart[id] = 1
   	 end
+  	 Pusher.trigger('test_channel', 'my_event', {
+      message: current_user.name + " added something  to cart" 
+      })
   	 redirect_to :action => :index
   end
 
