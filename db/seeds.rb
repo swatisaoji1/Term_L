@@ -125,3 +125,8 @@ b9.authors << [a10]
 b10.categories << [c1, c4, c14, c22, c23]
 b10.publishers << [p9]
 b10.authors << [a11]
+
+OrderStatus.delete_all
+OrderStatus.create! id: 1, name: "In Progress"
+OrderStatus.create! id: 2, name: "Placed"
+OrderStatus.create! id: 3, name: "Cancelled"

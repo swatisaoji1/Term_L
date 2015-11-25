@@ -1,0 +1,5 @@
+<% if @order.errors.any? || @order_entry.errors.any? %>
+alert("not valid.")
+<% else %>
+  alert("Item successfully added to cart!")
+<% end %>

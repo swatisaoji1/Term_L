@@ -2,6 +2,7 @@
 class BooksController < ApplicationController
   def index
   	@books = Book.all
+    @order_entry = current_order.order_entries.new
   end
 
   def show

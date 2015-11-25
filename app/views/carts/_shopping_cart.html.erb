@@ -1,0 +1,42 @@
+<% if !@order_entry.nil? && @order_entry.errors.any? %>
+  <div class="alert alert-danger">
+    <ul>
+    <% @order_entry.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+<% if @order_entries.size == 0 %>
+  <p class="text-center">
+    There are no items in your shopping cart.  Please <%= link_to "continue shopping", books_path %> and add some items to your cart.
+  </p>
+<% else %>
+  <table id="cart" class="table table-hover table-condensed">
+    <thead>
+      <tr>
+        <th style="width:50%">Product</th>
+        <th style="width:10%">Price</th>
+        <th style="width:8%">Quantity</th>
+        <th style="width:22%" class="text-center">Subtotal</th>
+        <th style="width:10%"></th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @order_entries.each do |order_entry| %>
+      <%= render 'carts/cart_row', book: order_entry.book, order_entry: order_entry, show_total: true %>
+    <% end %>
+    </tbody>
+    <tfoot>
+      <tr class="visible-xs">
+        <td class="text-center"><strong>Total <%= @total_price %></strong></td>
+      </tr>
+      <tr>
+      <td><%= link_to "continue shopping", books_path, {:class=>"btn btn-warning"} %></td>
+        <td colspan="2" class="hidden-xs"></td>
+        <td class="hidden-xs text-center"><strong>Total <%= number_to_currency @total_price %></strong></td>
+        <td><a href="#" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>
+      </tr>
+    </tfoot>
+  </table>
+<% end %>

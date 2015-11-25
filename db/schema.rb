@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151122171512) do
+ActiveRecord::Schema.define(version: 20151125035649) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -84,19 +84,29 @@ ActiveRecord::Schema.define(version: 20151122171512) do
     t.decimal  "unit_cost"
     t.integer  "book_id"
     t.integer  "order_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
+    t.decimal  "total_price", precision: 12, scale: 3
   end
 
   add_index "order_entries", ["book_id"], name: "index_order_entries_on_book_id", using: :btree
   add_index "order_entries", ["order_id"], name: "index_order_entries_on_order_id", using: :btree
 
-  create_table "orders", force: :cascade do |t|
-    t.integer  "user_id"
+  create_table "order_statuses", force: :cascade do |t|
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  create_table "orders", force: :cascade do |t|
+    t.integer  "user_id"
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
+    t.integer  "order_status_id"
+    t.decimal  "total",           precision: 12, scale: 3
+  end
+
+  add_index "orders", ["order_status_id"], name: "index_orders_on_order_status_id", using: :btree
   add_index "orders", ["user_id"], name: "index_orders_on_user_id", using: :btree
 
   create_table "postings", force: :cascade do |t|
@@ -145,6 +155,7 @@ ActiveRecord::Schema.define(version: 20151122171512) do
 
   add_foreign_key "order_entries", "books"
   add_foreign_key "order_entries", "orders"
+  add_foreign_key "orders", "order_statuses"
   add_foreign_key "orders", "users"
   add_foreign_key "postings", "books"
   add_foreign_key "postings", "users"
