@@ -1,49 +1,64 @@
 
-<h2 class="text-center">Got a book for rent or sale?</h2>
-<h4 class="text-center">Post it here for your friends to see!</h4>
-<br/>
-<div class="col-lg-4 col-lg-offset-4">
-<br/>
-<br/>
-	<form>
-		<%= form_for @book do |f| %>
-		  <div class="row">
-		  	<div class="col-xs-1"></div>
-		   	<div class="col-xs-3 text-left"><%= f.label :title %></div>
-			<div class="col-xs-7 text-right"><%= f.text_field :title %></div>
-		  </div>
-		  <br/>
-		  <div class="row">
-		  	<div class="col-xs-1"></div>
-		    <div class="col-xs-3 text-left"><%= f.label :isbn %></div>
-			<div class="col-xs-7 text-right"><%= f.text_field :isbn %></div>
-		  </div>
-		  <br/>
-		  <div class="row">
-		  	<div class="col-xs-1"></div>
-		    <div class="col-xs-3 text-left"><%= f.label :description %></div>
-			<div class="col-xs-7 text-right"><%= f.text_field :description %></div>
-		  </div>
-		  <br/>
-		  <div class="row">
-		  	<div class="col-xs-1"></div>
-		    <div class="col-xs-3 text-left"><%= f.label :image_path %></div> 
-			<div class="col-xs-7 text-right"><%= f.text_field :image_path %></div>	
-		  </div>
-		  <br/>
-		  <div class="row">
-		  	<div class="col-xs-1"></div>
-		    <div class="col-xs-3 text-left"><%= f.label :price %></div> 
-			<div class="col-xs-7 text-right"><%= f.text_field :price %></div>	
-		  </div>
-		  <br/>
-		  <div class="row">
-		  	<div class="col-xs-1"></div>
-		    <div class="col-xs-3 text-left"><%= f.label :quantity %></div> 
-			<div class="col-xs-7 text-right"><%= f.text_field :quantity %></div>
-		  </div>
-		  <br/>
-		  <div class="col-xs-12 text-center"><%= f.submit "Add Book" %></div>
-		<% end %>
-	</form>
-</div>
+<body>
+
+  <h2 class="text-center">Got a book for rent or sale?</h2>
+  <h4 class="text-center">Post it here for your friends to see!</h4>
+  <br/>
+  <div class="col-lg-4 col-lg-offset-4">
+  <br/>
+  <br/>
+  
+  <%= form_for (@book) do |f| %>
+    <div class="row">
+  	  <div class="col-xs-1"></div>
+  	  <div class="col-xs-3 text-left"><%= f.label :title %></div>
+  	  <div class="col-xs-7 text-right"><%= f.text_field :title %></div>
+  	</div>
+  	<br/>
+  	<div class="row">
+  	  <div class="col-xs-1"></div>
+  	  <div class="col-xs-3 text-left"><%= f.label :isbn %></div>
+  	  <div class="col-xs-7 text-right"><%= f.text_field :isbn %></div>
+  	</div>
+  	<br/>
+  	<div class="row">
+  	  <div class="col-xs-1"></div>
+  	  <div class="col-xs-3 text-left"><%= f.label :description %></div>
+  	  <div class="col-xs-7 text-right"><%= f.text_field :description %></div>
+  	</div>
+  	<br/>
+  	<div class="row">
+  	  <div class="col-xs-1"></div>
+  	  <div class="col-xs-3 text-left"><%= f.label :image_path %></div> 
+  	  <div class="col-xs-7 text-right"><%= f.text_field :image_path %></div>	
+  	</div>
+  	<br/>
+  	<div class="row">
+  	  <div class="col-xs-1"></div>
+  	  <div class="col-xs-3 text-left"><%= f.label :price %></div> 
+  	  <div class="col-xs-7 text-right"><%= f.text_field :price %></div>	
+   	</div>
+  	<br/>
+  	<div class="row">
+  	  <div class="col-xs-1"></div>
+  	  <div class="col-xs-3 text-left"><%= f.label :quantity %></div> 
+  	  <div class="col-xs-7 text-right"><%= f.text_field :quantity %></div>
+  	</div>
+  	<br/>
+  	<div class="row">
+  	  <div class="col-xs-1"></div>
+  	  <div class="col-xs-3 text-left"><%= f.label :sale_type %></div> 
+  	  <div class="col-xs-7 text-right"><%= f.text_field :sale_type, :placeholder => "Selling or Renting" %></div>
+  	</div>
+  	<br/>
+  	<div class="row">
+  	  <div class="col-xs-1"></div>
+  	  <div class="col-xs-3 text-left"><%= f.label :tags %></div> 
+  	  <div class="col-xs-7 text-right"><%= f.text_field :tags %></div>
+  	</div>
+  	<br/>
+   	<div class="col-xs-12 text-center"><%= f.submit "Add Book" %></div>
+    <% end %>
+  </div>
+  <br/><br/><br/><br/><br/>
+  </body>
