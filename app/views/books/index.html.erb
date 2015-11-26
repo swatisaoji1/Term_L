@@ -18,15 +18,16 @@
           <br/>
           <a> Add to Wishlist </a>
           <br/><br/>
-          <%= form_for @order_entry, remote: true do |f| %>
-          <div class="input-group">
-              <%= f.number_field :quantity, value: 1, class: "form-control", min: 1 %>
+          <form action="/order_entries" method="post">
+            <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+            <div class="input-group">
+              <input value="1" class="form-control" min="1" type="number" name="order_entry[quantity]" />
               <div class="input-group-btn">
-                <%= f.hidden_field :book_id, value: book.id %>
-                <%= f.submit "Add to Cart", class: "btn btn-primary" %>
+                <input value="<%= book.id %>" type="hidden" name="order_entry[book_id]">
+                <input type="submit" name="commit" value="Add to Cart" class="btn btn-primary">
               </div>
             </div>
-          <% end %>
+          </form>
           <!-- <br/><br/>
           <a href="/cart/<%=book.id%>">Add To Cart</a> -->
         </div>
