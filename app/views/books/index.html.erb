@@ -1,29 +1,24 @@
 
   <h2>Available Books</h2>
+   <table class="table table-hover table-condensed">
+    <thead>
+      <tr>
+        <th style="width:50%">Book</th>
+        <th style="width:10%">Price</th>
+        <th style="width:30%">Add to Cart</th>
+        <th style="width:10%"></th>
+      </tr>
+    </thead>
+    <tbody>
     <% @books.each do |book| %>
-          <%= image_tag book.image_path %>
-          <h3> <%= book.title %> </h3>
-          <p> Price: $<%= book.price %> </p>
-          <p> Quantity: <%= book.quantity %></p>
-          <p> Avialable for: <%= book.sale_type %></p>
-          <%= link_to "More Details", book_path(book) %>
-        
-          <!--
-          <form action="/order_entries" method="post">
-            <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-            <div class="input-group">
-              <input value="1" class="form-control" min="1" type="number" name="order_entry[quantity]" />
-              <div class="input-group-btn">
-                <input value="<%= book.id %>" type="hidden" name="order_entry[book_id]">
-                <input type="submit" name="commit" value="Add to Cart" class="btn btn-primary">
-              </div>
-            </div>
-          </form>
-          -->
-          <%= render "order_entries/new" %>
+         <%= render "book_row", book: book %>
+         
+       
+          
           
           <!-- <br/><br/>
           <a href="/cart/<%=book.id%>">Add To Cart</a> -->
         
     <% end %>
-  
+   </tbody>
+ </table>

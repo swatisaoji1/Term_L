@@ -7,6 +7,7 @@ class BooksController < ApplicationController
   end
 
   def show
+    logger.debug "In Book Show*******"
     @book = Book.find(params[:id])
     @user = User.find_by_id(@book.user_id)
     @categories = @book.categories

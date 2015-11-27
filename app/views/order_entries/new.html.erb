@@ -1,0 +1,4 @@
+<%= bootstrap_form_for @order_entry do |f| %>
+  	<%= f.number_field(:quantity, in: 1..100) %>
+  	<%= f.submit "Add to Cart" %>
+<% end %>

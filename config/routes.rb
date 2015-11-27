@@ -12,11 +12,16 @@ Rails.application.routes.draw do
   resources :dashboard
   authenticate :user do
     resources :books, only: [:new, :create, :edit, :update, :destroy]
-    resource :cart
+    
+  
+  
     #resources :order_entries, only: [:new, :create, :edit, :update, :destroy]
   end
   resources :books, only: [:index, :show]
   resources :order_entries
+  resources :carts
+  # resources :order_entries, only: [:create]
+  
   
   
  
