@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151125035649) do
+ActiveRecord::Schema.define(version: 20151127054539) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,10 +25,9 @@ ActiveRecord::Schema.define(version: 20151125035649) do
   add_index "Books_Users", ["user_id", "book_id"], name: "index_Books_Users_on_user_id_and_book_id", using: :btree
 
   create_table "authors", force: :cascade do |t|
-    t.string   "first_name", null: false
-    t.string   "last_name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "author_name"
   end
 
   create_table "authors_books", id: false, force: :cascade do |t|
@@ -40,16 +39,15 @@ ActiveRecord::Schema.define(version: 20151125035649) do
   add_index "authors_books", ["book_id"], name: "index_authors_books_on_book_id", using: :btree
 
   create_table "books", force: :cascade do |t|
-    t.string   "title",                    null: false
-    t.string   "isbn",                     null: false
-    t.text     "tags",        default: [],              array: true
+    t.string   "title",       null: false
+    t.string   "isbn",        null: false
     t.text     "description"
     t.string   "image_path"
     t.string   "edition"
-    t.float    "price",                    null: false
-    t.integer  "quantity",                 null: false
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.float    "price",       null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "quantity"
     t.string   "sale_type"
     t.integer  "user_id"
   end
@@ -71,6 +69,14 @@ ActiveRecord::Schema.define(version: 20151125035649) do
 
   add_index "books_publishers", ["book_id"], name: "index_books_publishers_on_book_id", using: :btree
   add_index "books_publishers", ["publisher_id"], name: "index_books_publishers_on_publisher_id", using: :btree
+
+  create_table "books_tags", id: false, force: :cascade do |t|
+    t.integer "book_id"
+    t.integer "tag_id"
+  end
+
+  add_index "books_tags", ["book_id"], name: "index_books_tags_on_book_id", using: :btree
+  add_index "books_tags", ["tag_id"], name: "index_books_tags_on_tag_id", using: :btree
 
   create_table "categories", force: :cascade do |t|
     t.string   "category_name", null: false
@@ -126,6 +132,12 @@ ActiveRecord::Schema.define(version: 20151125035649) do
     t.string   "publisher_name", null: false
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string   "tag_name",   null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

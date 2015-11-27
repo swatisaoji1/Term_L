@@ -13,6 +13,7 @@ class BooksController < ApplicationController
     @categories = @book.categories
     @publishers = @book.publishers
     @authors = @book.authors
+    @tags = @book.tags
   end
 
   def new
@@ -21,8 +22,8 @@ class BooksController < ApplicationController
  
   def create
    @book = Book.new(book_params)
-   @id = current_user.id
-  
+   @book.user_id = current_user.id
+
    if @book.save
      redirect_to books_path, :notice => "Your Book Was Posted"
      @message = current_user.name << " Posted a book " << @book.title 
@@ -37,7 +38,7 @@ class BooksController < ApplicationController
   
    private
  def book_params
-   params.require(:book).permit(:title, :description, :isbn, :image_path, :price, :quantity)
+   params.require(:book).permit(:title, :description, :isbn, :image_path, :price, :quantity, :tags, :sale_type, :edition, :category_list, :author_list, :publisher_list, :tag_list)
  end
 
 end
