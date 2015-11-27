@@ -21,7 +21,7 @@
         <p>Edition: <%= @book.edition %></p>
         <p> ISBN: <%= @book.isbn %></p>
         <p>Publisher: <% @publishers.each do |publisher| %><%= publisher.publisher_name %><% end %> </p>
-        <p>Posted by: <%= @user.name %> (<%= @user.email %>)</p>
+        <p>Posted by: <%= current_user.name %> (<%= current_user.email %>)</p>
         <p>Genres: <% @categories.each do |category| %><%= category.category_name %>,<% end %> </p>
       </div>
     </div>
