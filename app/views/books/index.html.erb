@@ -18,7 +18,17 @@
           <br/>
           <a> Add to Wishlist </a>
           <br/><br/>
-          <a>Add to Cart</a> 
+          <%= form_for @order_entry, remote: true do |f| %>
+          <div class="input-group">
+              <%= f.number_field :quantity, value: 1, class: "form-control", min: 1 %>
+              <div class="input-group-btn">
+                <%= f.hidden_field :book_id, value: book.id %>
+                <%= f.submit "Add to Cart", class: "btn btn-primary" %>
+              </div>
+            </div>
+          <% end %>
+          <!-- <br/><br/>
+          <a href="/cart/<%=book.id%>">Add To Cart</a> -->
         </div>
       </div>
     <% end %>

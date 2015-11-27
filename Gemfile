@@ -73,6 +73,9 @@ end
 #=================================================
 gem 'dotenv-rails', :groups => [:development, :test]
 gem 'pusher'
+gem 'toastr-rails'
+gem 'bootstrap_form'
+gem 'amazon-ecs'
 
 ruby "2.0.0"
 

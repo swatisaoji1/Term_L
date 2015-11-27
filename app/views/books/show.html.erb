@@ -26,8 +26,7 @@
 <h2>Authors</h2>
 <% @authors.each do |author| %>
   <p>Author Name: 
-    <%= author.first_name %>
-    <%= author.last_name %>
+    <%= author.author_name %>
   </p>
 <% end %>
 
@@ -35,6 +34,13 @@
 <% @publishers.each do |publisher| %>
   <p>
     <%= publisher.publisher_name %>
+  </p>
+<% end %>
+
+<h2>Tags</h2>
+<% @tags.each do |tag| %>
+  <p>
+    <%= tag.tag_name %>
   </p>
 <% end %>
 </div>

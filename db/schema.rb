@@ -11,8 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151122171512) do
-
+ActiveRecord::Schema.define(version: 20151127054539) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,10 +25,9 @@ ActiveRecord::Schema.define(version: 20151122171512) do
   add_index "Books_Users", ["user_id", "book_id"], name: "index_Books_Users_on_user_id_and_book_id", using: :btree
 
   create_table "authors", force: :cascade do |t|
-    t.string   "first_name", null: false
-    t.string   "last_name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "author_name"
   end
 
   create_table "authors_books", id: false, force: :cascade do |t|
@@ -41,15 +39,14 @@ ActiveRecord::Schema.define(version: 20151122171512) do
   add_index "authors_books", ["book_id"], name: "index_authors_books_on_book_id", using: :btree
 
   create_table "books", force: :cascade do |t|
-    t.string   "title",                    null: false
-    t.string   "isbn",                     null: false
-    t.text     "tags",        default: [],              array: true
+    t.string   "title",       null: false
+    t.string   "isbn",        null: false
     t.text     "description"
     t.string   "image_path"
     t.string   "edition"
-    t.float    "price",                    null: false
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.float    "price",       null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.integer  "quantity"
     t.string   "sale_type"
     t.integer  "user_id"
@@ -73,6 +70,14 @@ ActiveRecord::Schema.define(version: 20151122171512) do
   add_index "books_publishers", ["book_id"], name: "index_books_publishers_on_book_id", using: :btree
   add_index "books_publishers", ["publisher_id"], name: "index_books_publishers_on_publisher_id", using: :btree
 
+  create_table "books_tags", id: false, force: :cascade do |t|
+    t.integer "book_id"
+    t.integer "tag_id"
+  end
+
+  add_index "books_tags", ["book_id"], name: "index_books_tags_on_book_id", using: :btree
+  add_index "books_tags", ["tag_id"], name: "index_books_tags_on_tag_id", using: :btree
+
   create_table "categories", force: :cascade do |t|
     t.string   "category_name", null: false
     t.datetime "created_at",    null: false
@@ -85,19 +90,29 @@ ActiveRecord::Schema.define(version: 20151122171512) do
     t.decimal  "unit_cost"
     t.integer  "book_id"
     t.integer  "order_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
+    t.decimal  "total_price", precision: 12, scale: 3
   end
 
   add_index "order_entries", ["book_id"], name: "index_order_entries_on_book_id", using: :btree
   add_index "order_entries", ["order_id"], name: "index_order_entries_on_order_id", using: :btree
 
-  create_table "orders", force: :cascade do |t|
-    t.integer  "user_id"
+  create_table "order_statuses", force: :cascade do |t|
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  create_table "orders", force: :cascade do |t|
+    t.integer  "user_id"
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
+    t.integer  "order_status_id"
+    t.decimal  "total",           precision: 12, scale: 3
+  end
+
+  add_index "orders", ["order_status_id"], name: "index_orders_on_order_status_id", using: :btree
   add_index "orders", ["user_id"], name: "index_orders_on_user_id", using: :btree
 
   create_table "postings", force: :cascade do |t|
@@ -117,6 +132,12 @@ ActiveRecord::Schema.define(version: 20151122171512) do
     t.string   "publisher_name", null: false
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string   "tag_name",   null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -146,6 +167,7 @@ ActiveRecord::Schema.define(version: 20151122171512) do
 
   add_foreign_key "order_entries", "books"
   add_foreign_key "order_entries", "orders"
+  add_foreign_key "orders", "order_statuses"
   add_foreign_key "orders", "users"
   add_foreign_key "postings", "books"
   add_foreign_key "postings", "users"

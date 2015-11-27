@@ -1,64 +1,23 @@
 
 <body>
-
-  <h2 class="text-center">Got a book for rent or sale?</h2>
-  <h4 class="text-center">Post it here for your friends to see!</h4>
-  <br/>
-  <div class="col-lg-4 col-lg-offset-4">
-  <br/>
-  <br/>
-  
-  <%= form_for (@book) do |f| %>
-    <div class="row">
-  	  <div class="col-xs-1"></div>
-  	  <div class="col-xs-3 text-left"><%= f.label :title %></div>
-  	  <div class="col-xs-7 text-right"><%= f.text_field :title %></div>
-  	</div>
-  	<br/>
-  	<div class="row">
-  	  <div class="col-xs-1"></div>
-  	  <div class="col-xs-3 text-left"><%= f.label :isbn %></div>
-  	  <div class="col-xs-7 text-right"><%= f.text_field :isbn %></div>
-  	</div>
-  	<br/>
-  	<div class="row">
-  	  <div class="col-xs-1"></div>
-  	  <div class="col-xs-3 text-left"><%= f.label :description %></div>
-  	  <div class="col-xs-7 text-right"><%= f.text_field :description %></div>
-  	</div>
-  	<br/>
-  	<div class="row">
-  	  <div class="col-xs-1"></div>
-  	  <div class="col-xs-3 text-left"><%= f.label :image_path %></div> 
-  	  <div class="col-xs-7 text-right"><%= f.text_field :image_path %></div>	
-  	</div>
-  	<br/>
-  	<div class="row">
-  	  <div class="col-xs-1"></div>
-  	  <div class="col-xs-3 text-left"><%= f.label :price %></div> 
-  	  <div class="col-xs-7 text-right"><%= f.text_field :price %></div>	
-   	</div>
-  	<br/>
-  	<div class="row">
-  	  <div class="col-xs-1"></div>
-  	  <div class="col-xs-3 text-left"><%= f.label :quantity %></div> 
-  	  <div class="col-xs-7 text-right"><%= f.text_field :quantity %></div>
-  	</div>
-  	<br/>
-  	<div class="row">
-  	  <div class="col-xs-1"></div>
-  	  <div class="col-xs-3 text-left"><%= f.label :sale_type %></div> 
-  	  <div class="col-xs-7 text-right"><%= f.text_field :sale_type, :placeholder => "Selling or Renting" %></div>
-  	</div>
-  	<br/>
-  	<div class="row">
-  	  <div class="col-xs-1"></div>
-  	  <div class="col-xs-3 text-left"><%= f.label :tags %></div> 
-  	  <div class="col-xs-7 text-right"><%= f.text_field :tags %></div>
-  	</div>
-  	<br/>
-   	<div class="col-xs-12 text-center"><%= f.submit "Add Book" %></div>
-    <% end %>
-  </div>
-  <br/><br/><br/><br/><br/>
-  </body>
+<h2 class="text-center">Got a book for rent or sale?</h2>
+<h4 class="text-center">Post it here for your friends to see!</h4>
+<div class="container">
+	<%= bootstrap_form_for @book do |f| %>
+		<%= f.text_field :title, hide_label: true, placeholder: 'Awesome title' %>
+		<%= f.text_field :isbn, hide_label: true, placeholder: 'ISBN'%>
+		<%= f.text_field :description, hide_label: true, placeholder: 'Tell us more about the book'%>
+	  <%= f.text_field :image_path, hide_label: true, placeholder: 'Add URL to the image'%>
+		<%= f.text_field :price, hide_label: true, placeholder: 'Cost' %>
+		<%= f.text_field :quantity,hide_label: true, placeholder: 'Quantity' %>
+    <%= f.collection_select :sale_type, Book::SALETYPES, :to_s, :to_s, :include_blank => true%>
+    <%= f.collection_select :edition, Book::EDITION, :to_s, :to_s, :include_blank => true%>
+    <%= f.text_field :tag_list,hide_label: true, placeholder: 'Enter search tags for your book e.g. love story, best seller, adapted movie etc.' %>
+    <%= f.text_field :author_list,hide_label: true, placeholder: 'Enter the authors for you book(s)' %>
+    <%= f.text_field :category_list,hide_label: true, placeholder: 'Enter genres for you book(s) e.g. Romantic, Autobiography, Non-Fiction etc.' %>
+    <%= f.text_field :publisher_list,hide_label: true, placeholder: 'Enter the publishers for you book(s)' %>
+		<%= f.submit "Add Book" %></div>
+	<% end %>
+</div>
+<br/><br/><br/><br/><br/>
+</body>
