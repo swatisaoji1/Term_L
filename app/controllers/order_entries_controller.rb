@@ -1,5 +1,13 @@
 class OrderEntriesController < ApplicationController
+  #before_filter :authenticate_user!
+
+  before_filter :store_location
   before_filter :authenticate_user!
+  def new
+    @order = current_order
+    @order_entry = @order.order_entries.new
+    render "books"
+  end
 
   def create
     @order = current_order
@@ -26,4 +34,10 @@ class OrderEntriesController < ApplicationController
   def order_entry_params
     params.require(:order_entry).permit(:quantity, :book_id)
   end
+  
+  def store_location
+    session[:user_return_to] = "/books"
+  end
 end
+
+

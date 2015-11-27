@@ -1,0 +1,29 @@
+  <tr>
+    <td data-th="Book">
+      <div class="row">
+        <div class="col-sm-2"><img src="<%= book.image_path %>" alt="..." class="img-responsive"/></div>
+        <div class="col-sm-10">
+          <h4 class="nomargin"><%= book.title %></h4>
+          <p><%= book.description %></p>
+          <p><%= book.price %></p>
+          <%= link_to "More Details", book_path(book) %>
+        </div>
+      </div>
+    </td>
+    <td data-th="Price"><%= book.price %></td>
+    <td data-th="Action">
+    	  <!-- 
+          <form action="/order_entries" method="post">
+            <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+            <div class="input-group">
+              <input value="1" class="form-control" min="1" type="number" name="order_entry[quantity]" />
+              <div class="input-group-btn">
+                <input value="<%= book.id %>" type="hidden" name="order_entry[book_id]">
+                <input type="submit" name="commit" value="Add to Cart" class="btn btn-primary">
+              </div>
+            </div>
+          </form>
+         -->
+      <%= render "order_entries/new" , book: book%>
+    </td>
+  </tr>

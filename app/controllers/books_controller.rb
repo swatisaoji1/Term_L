@@ -2,10 +2,12 @@
 class BooksController < ApplicationController
   def index
   	@books = Book.all
-    @order_entry = current_order.order_entries.new
+  	@order = current_order
+    @order_entry = @order.order_entries.new
   end
 
   def show
+    logger.debug "In Book Show*******"
     @book = Book.find(params[:id])
     @user = User.find_by_id(@book.user_id)
     @categories = @book.categories
@@ -38,4 +40,5 @@ class BooksController < ApplicationController
  def book_params
    params.require(:book).permit(:title, :description, :isbn, :image_path, :price, :quantity, :tags, :sale_type, :edition, :category_list, :author_list, :publisher_list, :tag_list)
  end
+
 end
