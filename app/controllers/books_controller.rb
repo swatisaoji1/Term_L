@@ -8,12 +8,15 @@ class BooksController < ApplicationController
 
   def show
     logger.debug "In Book Show*******"
+    @order = current_order
+    @order_entry = @order.order_entries.new
     @book = Book.find(params[:id])
     @user = User.find_by_id(@book.user_id)
     @categories = @book.categories
     @publishers = @book.publishers
     @authors = @book.authors
     @tags = @book.tags
+
   end
 
   def new

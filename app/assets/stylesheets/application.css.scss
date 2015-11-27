@@ -23,48 +23,54 @@ h1{
   font-family: verdana;
 }
 
-.book {
-  border-radius: 25px;
-  border: 2px solid #D3D3D3;
-  height: 122px;
-  width: 800px;
+.info {
+  height: 90%;
+  width: 99%;
   text-align: left;
   margin: 5px;
 }
 
 .center{
   display: inline-block;
-  border-radius: 25px;
-  height: 105px;
+  height: 98%;
   margin-top:5px;
-  margin-left: 5px;
   vertical-align: middle;
 }
 
 
 #book-image{
-  width: 100px;
+  width: 20%;
 }
 #book-details{
-  width: 450px;
+  width: 48%;
   padding-left: 10px;
 }
 #add-to-cart{
-  width: 205px;
+  width: 31%;
+  padding-left:20px;
+  padding-right:20px;
+  border-radius: 10px;
+  border: 5px solid #D3D3D3;
 }
 #book-image img{
-  width: 100px;
-  height: 105px;
-  border-radius: 25px;
+  margin: 10px;
+  width: 92%;
+  height: 80%;
 }
 #book-details h3{
   margin-top: 5px;
   margin-bottom:0;
+  font-weight: bold;
 }
 #book-details p{
-  margin-top: 0;
-  margin-bottom:0;
   font-size: 14px;
+}
+#book-details h4{
+  font-weight: bold;
+}
+#book-specs p{
+  margin-top:0;
+  margin-bottom:0;
 }
 
 #add-to-cart a{
@@ -79,6 +85,12 @@ h1{
   padding-bottom: 10px;
   padding-right: 10px;
   padding-left: 10px;
+}
+#add-to-cart h3{
+  color:#8c4600;
+}
+#add-to-cart h4{
+  color:#439619;
 }
 
 .info{

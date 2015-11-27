@@ -1,49 +1,39 @@
 <body>
   <div class="info">
-    <%= image_tag @book.image_path %>
-    <h3> <%= @book.title %> </h3>
-    <p> Price: $<%= @book.price %> </p>
-    <p> Quantity: <%= @book.quantity %></p>
-    <p> Avialable for: <%= @book.sale_type %></p>
-    <p> Edition: <%= @book.edition %></p>
-    <p> ISBN: <%= @book.isbn %></p>
-    <p> <%= @book.description %></p>
-    <p> <%= @book.user_id %></p>
+    <div id="book-image" class = "center">
+      <%= image_tag @book.image_path %>
+    </div>
+    <div id = "book-details" class = "center">
+      <h3> <%= @book.title %> </h3>
+      <p>by
+        <% @authors.each do |author| %>
+          <%= author.author_name %> 
+        <%end %>
+      (author/s)
+      </p>
 
-    
-    <h2>User</h2>
-    <p><%= @user.name %></p>
-    <p><%= @user.email %></p>
+      <p>Now, available for <%= @book.sale_type %> !!!</p>
+      <br/><br/>
+      <p><%= @book.description %></p>
+      <br/>
+      <div id = "book-specs">
+        <h4> Product Specifications:</h4>
+        <p>Edition: <%= @book.edition %></p>
+        <p> ISBN: <%= @book.isbn %></p>
+        <p>Publisher: <% @publishers.each do |publisher| %><%= publisher.publisher_name %><% end %> </p>
+        <p>Posted by: <%= @user.name %> (<%= @user.email %>)</p>
+        <p>Genres: <% @categories.each do |category| %><%= category.category_name %>,<% end %> </p>
+      </div>
+    </div>
+    <div id = "add-to-cart" class = "center">
+      <br/>
+      <h3>Price: $<%= @book.price %></h3>
+      <h4><%= @book.quantity %> in stock</h4>
+      <br/><br/><br/>
+      <%= render "order_entries/new" , book: @book%>
+    </div>
+  </div>
 
-
-<h2>Categories</h2>
-<% @categories.each do |category| %>
-  <p>
-    <%= category.category_name %>
-  </p>
-<% end %>
-
-<h2>Authors</h2>
-<% @authors.each do |author| %>
-  <p>Author Name: 
-    <%= author.author_name %>
-  </p>
-<% end %>
-
-<h2>Publishers</h2>
-<% @publishers.each do |publisher| %>
-  <p>
-    <%= publisher.publisher_name %>
-  </p>
-<% end %>
-
-<h2>Tags</h2>
-<% @tags.each do |tag| %>
-  <p>
-    <%= tag.tag_name %>
-  </p>
-<% end %>
-</div>
-<br/><br/><br/><br/><br/>
+  <br/><br/><br/><br/><br/>
 
 </body>
