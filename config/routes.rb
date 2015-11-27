@@ -1,21 +1,23 @@
 Rails.application.routes.draw do
-  get 'order_entries/create'
+  #get 'order_entries/create'
 
-  get 'order_entries/update'
+  #get 'order_entries/update'
 
-  get 'order_entries/destroy'
+  #get 'order_entries/destroy'
 
-  get 'cart/index'
+  #get 'cart/index'
 
   devise_for :users, controllers: {omniauth_callbacks: "omniauth_callbacks", registrations: "registrations"}
   patch '/users/confirmation' => 'devise/confirmations#update', :via => :patch, :as => :update_user_confirmation
   resources :dashboard
   authenticate :user do
     resources :books, only: [:new, :create, :edit, :update, :destroy]
-    resource :cart, only: [:show]
-    resources :order_entries, only: [:create, :update, :destroy]
+    resource :cart
+    #resources :order_entries, only: [:new, :create, :edit, :update, :destroy]
   end
   resources :books, only: [:index, :show]
+  resources :order_entries
+  
   
  
   

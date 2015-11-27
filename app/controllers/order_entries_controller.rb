@@ -1,5 +1,10 @@
 class OrderEntriesController < ApplicationController
-  before_filter :authenticate_user!
+  #before_filter :authenticate_user!
+
+  def new
+    @order = current_order
+    @order_entry = @order.order_entries.new
+  end
 
   def create
     @order = current_order
