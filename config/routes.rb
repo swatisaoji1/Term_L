@@ -12,9 +12,6 @@ Rails.application.routes.draw do
   resources :dashboard
   authenticate :user do
     resources :books, only: [:new, :create, :edit, :update, :destroy]
-    
-  
-  
     #resources :order_entries, only: [:new, :create, :edit, :update, :destroy]
   end
   resources :books, only: [:index, :show]
@@ -22,7 +19,11 @@ Rails.application.routes.draw do
   resources :carts
   # resources :order_entries, only: [:create]
   
-  
+  resources :amazon do
+    member do 
+        post 'compare'
+    end
+  end
   
  
   
