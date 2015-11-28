@@ -1,0 +1,14 @@
+<h5>Our Price</h5>
+
+<p> $<%= @book.price %></p>
+
+<hr>
+
+<h5>Prices on Amazon.com</h5>
+
+<% @price.items.each_with_index do |item, n| %>
+	<p> Price of new: <%= item.get('OfferSummary/LowestNewPrice/FormattedPrice') %> </p>
+	<p> Price of old: <%= item.get('OfferSummary/LowestUsedPrice/FormattedPrice')%> </p>
+	<% break %>
+<% end %>
+ 
