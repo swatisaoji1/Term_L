@@ -76,6 +76,7 @@ gem 'pusher'
 gem 'toastr-rails'
 gem 'bootstrap_form'
 gem 'amazon-ecs'
+gem 'bh', '~> 1.2'
 
 ruby "2.0.0"
 

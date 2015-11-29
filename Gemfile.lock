@@ -44,6 +44,9 @@ GEM
       execjs
       json
     bcrypt (3.1.10)
+    bh (1.3.4)
+      actionpack
+      activesupport
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     bootstrap-sass (3.3.5.1)
@@ -224,6 +227,7 @@ PLATFORMS
 
 DEPENDENCIES
   amazon-ecs
+  bh (~> 1.2)
   bootstrap-sass (~> 3.3, >= 3.3.5.1)
   bootstrap_form
   byebug

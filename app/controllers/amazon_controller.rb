@@ -16,6 +16,7 @@ class AmazonController < ApplicationController
     @imgs = Amazon::Ecs.item_search(search_term,  { :response_group => 'Images',
                                                     :search_index => 'Books',
                                                     :sort => 'relevancerank' })
+                                                    
    
   end
 end

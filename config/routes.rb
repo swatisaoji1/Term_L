@@ -25,6 +25,10 @@ Rails.application.routes.draw do
     end
   end
   
+  match '/amazon_price/:id',
+    to:   'books#amazon_price',
+    via:  'post',
+    as:   :amazon_price
  
   
   root 'welcome#index'

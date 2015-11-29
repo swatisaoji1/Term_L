@@ -13,9 +13,8 @@
     </td>
     <td data-th="Price">
     	<p> $ <%= book.price %> </p>
-    	<%= form_for( book, :url => compare_amazon_path(book), :html => { :method => :post } ) do |f| %>
-		    <%= f.submit "Compare to Amazon" %>
-		<% end %>
+		<%= link_to "Compare to Amazon" , amazon_price_path(book.id), method: :post,  remote: true %>
+	
    	</td>
     <td data-th="Action">
     	  <!-- 
