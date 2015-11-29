@@ -9,40 +9,31 @@
   <!-- figure out data-turbolink - it might create trouble with js  -->
   <%= csrf_meta_tags %>
   
-  
-  
-  
-  
-  
-  
 </head>
 <body>
 	<%= render partial: "shared/navbar" %>
-	
-			<script type="text/javascript">
-			    // Enable pusher logging - don't include this in production
-			    Pusher.log = function(message) {
-			      if (window.console && window.console.log) {
-			        window.console.log(message);
-			      }
-			    };
-			
-			    var pusher = new Pusher('0c8ac3a08e78a2ab9d71', {
-			      encrypted: true
-			    });
-			    var channel = pusher.subscribe('test_channel');
-			    channel.bind('my_event', function(data) {	
-					toastr.success(data.message);
-			    });
 
-			  </script>
-				
-				<%= flash_messages %>
-				
-				<%= yield %>
+	<%= flash_messages %>
+	<%= yield %>
 				
 		
 	
-
+	<script type="text/javascript">
+	    // Enable pusher logging - don't include this in production
+	    Pusher.log = function(message) {
+	      if (window.console && window.console.log) {
+	        window.console.log(message);
+	      }
+	    };
+	
+	    var pusher = new Pusher('0c8ac3a08e78a2ab9d71', {
+	      encrypted: true
+	    });
+	    var channel = pusher.subscribe('test_channel');
+	    channel.bind('my_event', function(data) {	
+			toastr.success(data.message);
+	    });
+	
+	</script>
 </body>
 </html>

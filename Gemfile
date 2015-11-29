@@ -77,6 +77,7 @@ gem 'toastr-rails'
 gem 'bootstrap_form'
 gem 'amazon-ecs'
 gem 'bh', '~> 1.2'
+gem 'social-share-button', '~> 0.1.6'
 
 ruby "2.0.0"
 
