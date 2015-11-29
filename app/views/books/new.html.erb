@@ -4,7 +4,7 @@
 <h4 class="text-center">Post it here for your friends to see!</h4>
 <br />
 <div class="col-lg-1"></div>
-<div class="container-main col-lg-4">
+<div class="container col-lg-4">
 	<%= bootstrap_form_for @book do |f| %>
 		<%= f.text_field :title, hide_label: true, placeholder: 'Title' %>
 		<%= f.text_field :author_list,hide_label: true, placeholder: 'Author/Authors' %>
@@ -14,7 +14,7 @@
 		<%= f.text_field :price, hide_label: true, placeholder: 'Cost' %>
 		<%= f.text_field :quantity,hide_label: true, placeholder: 'Quantity' %>
 </div>
-<div class="container-main col-lg-4">
+<div class="container col-lg-4">
     <%= f.collection_select :sale_type, Book::SALETYPES, :to_s, :to_s, :include_blank => true%>
     <%= f.collection_select :edition, Book::EDITION, :to_s, :to_s, :include_blank => true%>
     <br />
