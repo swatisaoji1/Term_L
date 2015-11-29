@@ -5,12 +5,17 @@ class BooksController < ApplicationController
   
   def index
   	@books = Book.all
+  	if params[:search]
+  	  logger.debug(params[:search])
+      @books = Book.search(params[:search]).order("created_at ASC")
+    else
+      @books = Book.all.order('created_at ASC')
+    end
   	@order = current_order
     @order_entry = @order.order_entries.new
   end
 
   def show
-    logger.debug "In Book Show*******"
     @order = current_order
     @order_entry = @order.order_entries.new
     @book = Book.find(params[:id])
@@ -19,8 +24,12 @@ class BooksController < ApplicationController
     @publishers = @book.publishers
     @authors = @book.authors
     @tags = @book.tags
-
   end
+  
+  def posting
+    
+  end
+
 
   def new
    @book = Book.new
@@ -35,19 +44,16 @@ class BooksController < ApplicationController
      @message = current_user.name << " Posted a book " << @book.title 
      Pusher.trigger('test_channel', 'my_event', {
       message: @message
-      })
-     
+     })  
    else
      render "new"
    end
   end
   
   def amazon_price
-    
     @book= Book.find(params[:id])
     @search_term = @book.isbn
     search_term = @search_term.delete("^a-zA-Z  0-9")
-    logger.debug(search_term)
     @res  = Amazon::Ecs.item_search(search_term,  { :search_index => 'Books', :sort => 'relevancerank' })
     @price  = Amazon::Ecs.item_search(search_term,  { :response_group => 'Offers', :search_index => 'Books', :sort => 'relevancerank' })
     @price.items.each_with_index do |item, n|

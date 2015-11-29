@@ -10,6 +10,10 @@ class Book < ActiveRecord::Base
   has_many :postings
   has_many :order_entries
 
+  def self.search(search)
+    where("lower(title) LIKE ?", "%#{search.downcase}%") 
+  end
+
   def tag_list
     self.tags.map { |t| t.tag_name; puts t.tag_name}.join(", ")
   end
