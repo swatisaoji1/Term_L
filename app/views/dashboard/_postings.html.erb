@@ -1,0 +1,18 @@
+
+<div class="container">
+ <% books.each do |book| %>
+      <div class="container row">
+        <div class="col-sm-2"><img src="<%= book.image_path %>" alt="..." class="img-responsive"/></div>
+        <div class="col-sm-6">
+          <h4 class="nomargin"><%= book.title %></h4>
+          <p>Description: %= book.description %></p>
+          <p>Quantity: <%= book.quantity %></p>
+          <p>Available for: <%= book.sale_type %></p>
+     	</div>
+     	 <div class="col-sm-4">
+     	 	<%= link_to "Edit Posting", edit_book_path(book.id)%>
+     	 </div>
+     </div>
+     <hr>
+ <% end %>
+</div>

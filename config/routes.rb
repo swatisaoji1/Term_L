@@ -14,7 +14,13 @@ Rails.application.routes.draw do
     resources :books, only: [:new, :create, :edit, :update, :destroy]
     #resources :order_entries, only: [:new, :create, :edit, :update, :destroy]
   end
+ resources :books do
+    collection do
+      get 'postings'
+    end
+  end
   resources :books, only: [:index, :show]
+
   resources :order_entries
   resources :carts
   # resources :order_entries, only: [:create]

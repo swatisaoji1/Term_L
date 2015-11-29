@@ -1,7 +1,7 @@
 
 class BooksController < ApplicationController
   helper_method :get_amazon_price
-  
+ 
   
   def index
   	@books = Book.all
@@ -15,6 +15,11 @@ class BooksController < ApplicationController
     @order_entry = @order.order_entries.new
   end
 
+  def postings
+    @books = Book.postings(current_user.id).order("created_at ASC")
+    render :partial =>'postings'
+  end
+
   def show
     @order = current_order
     @order_entry = @order.order_entries.new
@@ -26,11 +31,24 @@ class BooksController < ApplicationController
     @tags = @book.tags
   end
   
-  def posting
-    
+
+  def edit
+     @book = Book.find(params[:id])
   end
 
-
+  def update
+    @book = Book.find(params[:id])
+     if @book.update(book_params)
+       redirect_to books_path, :notice => "Your Book Was Edited"
+       @message = current_user.name << " Edited a book " << @book.title 
+       Pusher.trigger('test_channel', 'my_event', {
+        message: @message
+       })  
+     else
+       render "edit"
+     end
+  end
+  
   def new
    @book = Book.new
   end

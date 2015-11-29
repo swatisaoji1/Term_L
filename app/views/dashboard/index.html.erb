@@ -22,7 +22,7 @@
 					<%= render 'users/registrations/edit'%>
 				</div>
 				<div class="tab-pane" id="postings">
-					List of books posted by me
+					<%= render partial: "postings", object: postings , as: 'books' %>
 				</div>
 			</div>
 			
