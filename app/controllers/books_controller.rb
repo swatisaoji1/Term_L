@@ -68,6 +68,13 @@ class BooksController < ApplicationController
    end
   end
   
+  def destroy
+    logger.debug(params[:id])
+    @book = Book.find(params[:id])
+    @book.delete
+    redirect_to "index"
+  end
+  
   def amazon_price
     @book= Book.find(params[:id])
     @search_term = @book.isbn
