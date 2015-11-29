@@ -1,0 +1,5 @@
+$('body').append('<%= j render partial: "amazon_price", locals: { price: @price , book: @book , amazon_price: @amazon_price} %>');
+$('#myModal').modal('show');
+$('#myModal').on('hidden.bs.modal', function () {
+  $(this).remove();
+});

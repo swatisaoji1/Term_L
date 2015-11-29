@@ -1,0 +1,44 @@
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+		<div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          <h4 class="modal-title">Price Compare</h4>
+        </div>
+      <div class="modal-body"> 
+		<div class="container">
+			<div class="row ">
+				<div class="col-sm-3 amazon-price">
+					<h5>Amazon :</h5>
+			        <p>
+			        	<% price.items.each_with_index do |item, n| %>
+			        		<% @amaz = item.get('OfferSummary/LowestNewPrice/FormattedPrice')%>
+			      			<%=  @amaz %>
+			      			<% break %>
+			    		<% end %>
+			    	</p>
+	    		</div>
+	    		<div class="col-sm-3">
+	    			<h5>BookMate :</h5>
+			        <p>
+			        	<%= book.price %>
+			      			
+			    	</p>
+	    		</div>
+	    	</div>
+		</div>
+      </div>
+		
+			<% if book.price > @amaz.delete( "$" ).to_f %>
+				<div class="modal-footer">
+				 <p> Dont worry we will match the price !</p> 
+				 <a href="#"> Add to Cart with amazon price </a>
+				</div>
+			
+			<% else %>
+				p> We offer the best prices :)</p> 
+			<% end %>
+		
+    </div>
+  </div>
+</div>
