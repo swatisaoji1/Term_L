@@ -27,7 +27,7 @@ Rails.application.routes.draw do
   
   match '/amazon_price/:id',
     to:   'books#amazon_price',
-    via:  'post',
+    via:  'get',
     as:   :amazon_price
  
   

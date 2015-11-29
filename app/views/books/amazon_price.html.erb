@@ -1,0 +1,37 @@
+
+		<div class="container">
+			<div class="row ">
+				<div class="col-sm-3 amazon-price">
+					<h5>Amazon :</h5>
+			        <p>
+			        	<% @price.items.each_with_index do |item, n| %>
+			        		<% @amaz = item.get('OfferSummary/LowestNewPrice/FormattedPrice')%>
+			      			<%=  @amaz %>
+			      			<% break %>
+			    		<% end %>
+			    	</p>
+	    		</div>
+	    		<div class="col-sm-3">
+	    			<h5>BookMate :</h5>
+			        <p>
+			        	<%= @book.price %>
+			      			
+			    	</p>
+	    		</div>
+	    		
+	    		<div class="col-sm-6">
+	    		<% if @book.price > @amaz.delete( "$" ).to_f %>
+				 <p> Dont worry we will match the price !</p> 
+				 <a href="#" class="btn btn-primary"> Add to Cart with amazon price </a>
+				
+			
+				<% else %>
+					<p> We offer the best prices :)</p> 
+				<% end %>
+	    		</div>
+	    	</div>
+		
+      	<hr>
+
+		
+	</div>

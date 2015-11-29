@@ -13,7 +13,7 @@
     </td>
     <td data-th="Price">
     	<p> $ <%= book.price %> </p>
-		<%= link_to "Compare to Amazon" , amazon_price_path(book.id), method: :post,  remote: true %>
+		<%= link_to "Compare to Amazon" , amazon_price_path(book.id), remote: true %>
 	
    	</td>
     <td data-th="Action">
