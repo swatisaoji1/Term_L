@@ -44,6 +44,7 @@ Rails.application.routes.draw do
   get '/PostABook' => 'welcome#postabook'
   get '/books' => 'books#index'
   get '/About' => 'welcome#about'
+  get '/Orders' => 'orders#checkout'
 
   # get '/cart' => 'cart#index'
   # get '/cart/clear' => 'cart#clearCart'
