@@ -1,0 +1,36 @@
+<% if !@wishlist_entry.nil? && @wishlist_entry.errors.any? %>
+  <div class="alert alert-danger">
+    <ul>
+    <% @wishlist_entry.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+<% if @wishlist_entries.size == 0 %>
+  <p class="text-center">
+    There are no items in your wishlist.  Please <%= link_to "continue shopping", books_path %> and add some items to your wishlist.
+  </p>
+<% else %>
+  <table id="cart" class="table table-hover table-condensed">
+    <thead>
+      <tr>
+        <th style="width:50%">Product</th>
+        <th style="width:10%"></th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @wishlist_entries.each do |wishlist_entry| %>
+      <%= render 'wishlists/wishlist_row', book: wishlist_entry.book, wishlist_entry: wishlist_entry %>
+    <% end %>
+    </tbody>
+    <tfoot>
+      <tr class="visible-xs">
+      </tr>
+      <tr>
+      <td><%= link_to "continue shopping", books_path, {:class=>"btn btn-warning"} %></td>
+        <td colspan="2" class="hidden-xs"></td>
+      </tr>
+    </tfoot>
+  </table>
+<% end %>

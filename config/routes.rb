@@ -23,6 +23,8 @@ Rails.application.routes.draw do
 
   resources :order_entries
   resources :carts
+  resources :wishlists
+  resources :wishlist_entries
   # resources :order_entries, only: [:create]
   
   resources :amazon do
