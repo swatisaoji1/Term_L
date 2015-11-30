@@ -1,0 +1,17 @@
+<%= form_for wishlist_entry, remote: true do |f| %>
+  <%= f.hidden_field :book_id, value: book.id %>
+  <tr>
+    <td data-th="Product">
+      <div class="row">
+        <div class="col-sm-2 hidden-xs"><img src="<%= book.image_path %>" alt="..." class="img-responsive"/></div>
+        <div class="col-sm-10">
+          <h4 class="nomargin"><%= book.title %></h4>
+          <p><%= book.description %></p>
+        </div>
+      </div>
+    </td>
+    <td class="actions" data-th="">
+      <%= link_to "Delete", wishlist_entry, { data: { confirm: "Are you sure you wish to delete the book '#{wishlist_entry.book.title}' from your wishlist?" }, method: :delete, remote: true, class: "btn btn-danger" } %>               
+    </td>
+  </tr>
+<% end %>

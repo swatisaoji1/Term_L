@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
 
   def set_current_user
     Order.current_user = current_user
+    Wishlist.current_user = current_user
   end
 
   def current_order
@@ -14,7 +15,7 @@ class ApplicationController < ActionController::Base
       Order.find(session[:order_id])
     else
       if !current_user.nil?
-        order = Order.find_by_user_id_and_order_status_id(current_user.id, 1)
+        order = Order.find_by_user_id(current_user.id, 1)
         if order.nil?
           return Order.new
         else
@@ -22,6 +23,23 @@ class ApplicationController < ActionController::Base
         end
       else
         return Order.new
+      end
+    end
+  end
+
+  def current_wishlist
+    if !session[:wishlist_id].nil?
+      Wishlist.find(session[:wishlist_id])
+    else
+      if !current_user.nil?
+        wishlist = Wishlist.find_by_user_id(current_user.id)
+        if wishlist.nil?
+          return Wishlist.new
+        else
+          wishlist
+        end
+      else
+        return Wishlist.new
       end
     end
   end

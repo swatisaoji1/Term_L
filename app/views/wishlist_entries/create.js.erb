@@ -1,0 +1,5 @@
+<% if @wishlist.errors.any? || @wishlist_entry.errors.any? %>
+alert("not valid.")
+<% else %>
+  alert("Item successfully added to wishlist!")
+<% end %>
