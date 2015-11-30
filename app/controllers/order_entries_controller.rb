@@ -11,6 +11,14 @@ class OrderEntriesController < ApplicationController
 
   def create
     @order = current_order
+    current_order_entries = @order.order_entries
+    current_order_entries.each do |oe|
+      if oe.book_id == order_entry_params[:book_id].to_i then
+        oe.quantity = oe.quantity + order_entry_params[:quantity].to_i
+        oe.save
+        return
+      end
+    end
     @order_entry = @order.order_entries.new(order_entry_params)
     @order.save
     session[:order_id] = @order.id
