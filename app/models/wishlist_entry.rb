@@ -16,7 +16,7 @@ class WishlistEntry < ActiveRecord::Base
 
   def wishlist_present
     if wishlist.nil?
-      errors.add(:wishlist, "is not lid.")
+      errors.add(:wishlist, "is not valid.")
     end
   end
 

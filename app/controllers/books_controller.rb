@@ -39,11 +39,13 @@ class BooksController < ApplicationController
   def update
     @book = Book.find(params[:id])
      if @book.update(book_params)
-       redirect_to books_path, :notice => "Your Book Was Edited"
+       #redirect_to books_path, :notice => "Your Book Was Edited"
        @message = current_user.name << " Edited a book " << @book.title 
        Pusher.trigger('test_channel', 'my_event', {
         message: @message
-       })  
+       }) 
+       redirect_to dashboard_index_path,  :notice => "Your Book Was Edited"
+       
      else
        render "edit"
      end
@@ -71,8 +73,13 @@ class BooksController < ApplicationController
   def destroy
     logger.debug(params[:id])
     @book = Book.find(params[:id])
-    @book.delete
-    redirect_to "index"
+    message = current_user.name << " Deleted the book " << @book.title 
+    if @book.delete
+      Pusher.trigger('test_channel', 'my_event', {
+        message: @message
+       })  
+    end
+    redirect_to :back, :notice => "The book was deleted "
   end
   
   def amazon_price
