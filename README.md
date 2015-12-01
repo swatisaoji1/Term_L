@@ -2,7 +2,7 @@
 
 Link to the heroku site :
 
-http://rubybookmates.herokuapp.com/
+http://rubybookmate.herokuapp.com/
 
 Team members:
 
