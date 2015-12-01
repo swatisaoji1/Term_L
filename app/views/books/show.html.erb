@@ -32,6 +32,7 @@
     <div id = "add-to-cart" class = "center">
       <br/>
       <h3>Price: $<%= @book.price %></h3>
+      <%= link_to "Compare to Amazon" , amazon_price_path(@book.id), remote: true %>
       <h4><%= @book.quantity %> in stock</h4>
       <br/><br/><br/>
       <%= render "order_entries/new" , book: @book%>

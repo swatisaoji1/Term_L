@@ -10,11 +10,12 @@ class OrderEntry < ActiveRecord::Base
   after_update :update_order
 
   def unit_cost
-    book.price
+    #book.price
+    self[:unit_cost]
   end
 
   def total_price
-  	unit_cost * quantity
+  	self[:unit_cost] * quantity
   end
 
   private
@@ -31,7 +32,7 @@ class OrderEntry < ActiveRecord::Base
   end
 
   def finalize
-    self[:unit_cost] = unit_cost
+    # self[:unit_cost] = unit_cost
     self[:total_price] = quantity * self[:unit_cost]
   end
 

@@ -1,9 +1,10 @@
   <form action="/order_entries" method="post">
     <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
     <div class="input-group">
-      <input value="1" class="form-control" min="1" type="number" name="order_entry[quantity]" />
+      <input value="1" class="form-control" min="1" max="<%=book.quantity%>" type="number" name="order_entry[quantity]" />
       <div class="input-group-btn">
         <input value="<%= book.id %>" type="hidden" name="order_entry[book_id]">
+        <input value="<%= book.price %>" type="hidden" name="order_entry[unit_cost]">
         <input type="submit" name="commit" value="Add to Cart" class="btn btn-primary">
       </div>
     </div>

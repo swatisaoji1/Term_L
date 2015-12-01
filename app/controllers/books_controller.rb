@@ -93,6 +93,8 @@ class BooksController < ApplicationController
       @amazon_price = item.get('OfferSummary/LowestNewPrice/FormattedPrice')
       logger.debug(@amazon_price)
     end
+    @order = current_order
+    @order_entry = @order.order_entries.new
     respond_to do |format|
       format.html
       format.js

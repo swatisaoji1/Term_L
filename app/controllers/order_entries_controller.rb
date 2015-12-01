@@ -15,6 +15,7 @@ class OrderEntriesController < ApplicationController
     current_order_entries.each do |oe|
       if oe.book_id == order_entry_params[:book_id].to_i then
         oe.quantity = oe.quantity + order_entry_params[:quantity].to_i
+        oe.unit_cost = order_entry_params[:unit_cost]
         oe.save
         return
       end
@@ -40,7 +41,7 @@ class OrderEntriesController < ApplicationController
 
   private
   def order_entry_params
-    params.require(:order_entry).permit(:quantity, :book_id)
+    params.require(:order_entry).permit(:quantity, :book_id, :unit_cost)
   end
   
   def store_location
