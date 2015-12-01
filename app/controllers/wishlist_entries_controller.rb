@@ -10,8 +10,20 @@ class WishlistEntriesController < ApplicationController
 
   def create
     @wishlist = current_wishlist
+    # check if book already in wishlist
+    current_wishlist_enteries = @wishlist.wishlist_entries
+    current_wishlist_enteries.each do |wishlist|
+      if wishlist.book_id == wishlist_entry_params[:book_id].to_i then
+        return redirect_to :back , :notice=> "The Book is already in wishlist"
+      end 
+    end
     @wishlist_entry = @wishlist.wishlist_entries.new(wishlist_entry_params)
-    @wishlist.save
+    @message = current_user.name << " added " << Book.find(@wishlist_entry.book_id).title << " to the wishlist"
+    if @wishlist.save
+      Pusher.trigger('test_channel', 'my_event', {
+        message: @message
+       })
+    end
     session[:wishlist_id] = @wishlist.id
   end
 
@@ -27,6 +39,10 @@ class WishlistEntriesController < ApplicationController
     @wishlist_entry = @wishlist.wishlist_entries.find(params[:id])
     @wishlist_entry.destroy
     @wishlist_entries = @wishlist.wishlist_entries
+  end
+  
+  def move_to_cart
+    
   end
 
   private

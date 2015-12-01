@@ -21,7 +21,12 @@ class OrderEntriesController < ApplicationController
       end
     end
     @order_entry = @order.order_entries.new(order_entry_params)
-    @order.save
+    @message = current_user.name << " added " << Book.find(@order_entry.book_id).title << " to the cart"
+    if @order.save
+      Pusher.trigger('test_channel', 'my_event', {
+        message: @message
+       })
+    end
     session[:order_id] = @order.id
   end
 
