@@ -21,7 +21,11 @@
         <p>Edition: <%= @book.edition %></p>
         <p> ISBN: <%= @book.isbn %></p>
         <p>Publisher: <% @publishers.each do |publisher| %><%= publisher.publisher_name %><% end %> </p>
-        <p>Posted by: <%= current_user.name %> (<%= current_user.email %>)</p>
+        <% if !@book.user_id.nil?%>
+        <p>Posted by: <%= @book.user_id %> 
+        	<% @user = User.find_by id: @book.user_id %>
+        	(<%=  @user.name %>)</p>
+       	<% end %>
         <p>Genres: <% @categories.each do |category| %><%= category.category_name %>,<% end %> </p>
       </div>
     </div>
@@ -33,7 +37,5 @@
       <%= render "order_entries/new" , book: @book%>
     </div>
   </div>
-
-  <br/><br/><br/><br/><br/>
 
 </body>
