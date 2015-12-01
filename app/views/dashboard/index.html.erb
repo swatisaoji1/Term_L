@@ -8,22 +8,24 @@
 <div class="container">
 		<div class="">
 			<ul class="nav nav-tabs">
-				<li role="presentation" class="active"><a href="#notifications" data-toggle="tab" >Updates</a></li>
+				<li role="presentation" class="active" ><a href="#postings" data-toggle="tab">My Postings</a></li>
+				<li role="presentation" ><a href="#notifications" data-toggle="tab" >My Orders</a></li>
 			  <li role="presentation"><a href="#profile" data-toggle="tab" >Profile</a></li>
-			  <li role="presentation"><a href="#postings" data-toggle="tab">My Postings</a></li>
+			  
 			</ul>
 		</div>
 		<div class="">
 			<div class="tab-content">
-				<div class="tab-pane active" id="notifications">
-					Some awesome information
+				<div class="tab-pane active" id="postings">
+					<%= render partial: "postings", object: postings , as: 'books' %>
+				</div>
+				<div class="tab-pane" id="notifications">
+					<%= render partial: "orders", object: orders , as: 'orders' %>
 				</div>
 				<div class="tab-pane" id="profile">
 					<%= render 'users/registrations/edit'%>
 				</div>
-				<div class="tab-pane" id="postings">
-					<%= render partial: "postings", object: postings , as: 'books' %>
-				</div>
+			
 			</div>
 			
 		</div>

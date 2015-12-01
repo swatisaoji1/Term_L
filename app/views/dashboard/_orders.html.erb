@@ -1,0 +1,35 @@
+<div class="container">
+	<% if orders.size ==  0%>
+	<div>
+		<p> You have no Order History </p>
+	</div>
+	<% else %>
+		<div class="row">
+		       <div class="col-sm-6">
+		          <h4>Order History</h4>
+		          <p></p>
+		         </div>
+		     	<div class="col-sm-4">
+		     	
+		     	</div>
+	     </div>
+	     <hr>
+	     <% @count = 0 %>
+		<% orders.each do |order| %>
+	      	<div class="container row">
+	      		<div class="col-sm-2">
+	      			<p><%= @count = @count + 1 %></p>
+	      			</div>
+		       <div class="col-sm-6">
+		          <p>Order placed on : <%= order.updated_at %></h4>
+		          <p>Total: $ <%= order.total %></p>
+		         </div>
+		     	<div class="col-sm-4">
+		     		<%= link_to "Order Details" , order_enteries, remote: true %>
+		     	</div>
+	     	</div>
+	     	<hr>
+	 	<% end %>
+	<% end %>
+ 
+</div>

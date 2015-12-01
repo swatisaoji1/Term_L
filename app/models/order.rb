@@ -20,5 +20,9 @@ class Order < ActiveRecord::Base
     puts current_user
     self[:user_id] = current_user.id
   end
+  
+  def self.orders(id)
+    where("user_id = ?", id)
+  end
 
 end
