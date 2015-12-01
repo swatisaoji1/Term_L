@@ -2,7 +2,7 @@
 
 Link to the heroku site :
 
-http://csc867bookmate.herokuapp.com/
+http://rubybookmates.herokuapp.com/
 
 Team members:
 
