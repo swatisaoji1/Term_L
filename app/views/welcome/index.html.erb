@@ -88,46 +88,14 @@
             <div class="col-lg-12">
                 <h2 class="page-header">Featured Books!</h2>
             </div>
+            <% @books = featured_books %>
+            <% @books.each do |book| %>
             <div class="col-md-3 col-sm-6">
-                <a href=/books/44/>
-                    <img class="img-response img-portfolio img-hover" src="http://d.gr-assets.com/books/1423146561l/23450710.jpg" alt="">
+                <a href=/books/<%=book.id%>/>
+                    <img class="img-response img-portfolio img-hover" src="<%= book.image_path %>" alt="">
                 </a>
             </div>
-            <div class="col-md-3 col-sm-6">
-                <a href=/books/45/>
-                    <img class="img-response img-portfolio img-hover" src="http://ecx.images-amazon.com/images/I/51beNt3B%2BlL._SY344_BO1,204,203,200_.jpg" alt="">
-                </a>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <a href=/books/46/>
-                    <img class="img-response img-portfolio img-hover" src="http://ecx.images-amazon.com/images/I/519HKX9M69L.jpg" alt="">
-                </a>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <a href=/books/53/>
-                    <img class="img-response img-portfolio img-hover" src="http://www.valmuller.com/wp-content/uploads/2013/11/THE-FOUNTAINHEAD-by-Ayn-Rand.jpg" alt="">
-                </a>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <a href=/books/50/>
-                    <img class="img-response img-portfolio img-hover" src="https://upload.wikimedia.org/wikipedia/en/e/e4/Steve_Jobs_by_Walter_Isaacson.jpg" alt="">
-                </a>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <a href=/books/52/>
-                    <img class="img-response img-portfolio img-hover" src="http://d.gr-assets.com/books/1329421639l/50365.jpg" alt="">
-                </a>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <a href=/books/51/>
-                    <img class="img-response img-portfolio img-hover" src="http://images.barnesandnoble.com/images/66470000/66470758.JPG" alt="">
-                </a>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <a href=/books/47/>
-                    <img class="img-response img-portfolio img-hover" src="http://d.gr-assets.com/books/1413706054l/18007564.jpg" alt="">
-                </a>
-            </div>
+            <% end %>
         </div>
         <!-- /.row -->
         <hr>

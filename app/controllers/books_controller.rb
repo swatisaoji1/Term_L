@@ -14,7 +14,8 @@ class BooksController < ApplicationController
   	@order = current_order
     @order_entry = @order.order_entries.new
   end
-
+  
+  
   def postings
     @books = Book.postings(current_user.id).order("created_at ASC")
     render :partial =>'postings'
