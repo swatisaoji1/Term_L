@@ -1,0 +1,34 @@
+<div class="container">
+	<% if returns.size ==  0%>
+	<div>
+		<p> You have no Items to Return!</p>
+	</div>
+	<% else %>
+		<div class="row">
+		       <div class="col-sm-6">
+		          <h4>Return Items</h4>
+		          <p></p>
+		         </div>
+		     	<div class="col-sm-4">
+		     	
+		     	</div>
+	     </div>
+	     <hr>
+	     <% @count = 0 %>
+		<% returns.each do |ret| %>
+	      	<div class="container row">
+	      	    <div class="col-sm-2"><img src="<%= ret.book.image_path %>" alt="..." class="img-responsive"/></div>
+		        <div class="col-sm-6">
+		          <h4 class="nomargin"><%= ret.book.title %></h4>
+		          <p>Description: <%= ret.book.description %></p>
+		     	</div>
+	      		<div class="col-sm-6">
+		          <p>Order placed on : <%= ret.created_at.to_date.strftime("%d %b, %Y") %></p>
+		          <p><strong>Due Date: <%= (ret.created_at.to_date + 10.days).strftime("%d %b, %Y") %></strong></p>
+		        </div>
+	     	</div>
+	     	<hr>
+	 	<% end %>
+	<% end %>
+ 
+</div>

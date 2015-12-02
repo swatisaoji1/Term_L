@@ -25,7 +25,7 @@
 		          <p>Total: $ <%= order.total %></p>
 		         </div>
 		     	<div class="col-sm-4">
-		     		<%= link_to "Order Details" , order_enteries, remote: true %>
+		     		<%= link_to "Order Details" , order_enteries_path(order.id) , remote: true %>
 		     	</div>
 	     	</div>
 	     	<hr>

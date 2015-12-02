@@ -175,13 +175,21 @@ ActiveRecord::Schema.define(version: 20151130063628) do
   add_index "wishlist_entries", ["book_id"], name: "index_wishlist_entries_on_book_id", using: :btree
   add_index "wishlist_entries", ["wishlist_id"], name: "index_wishlist_entries_on_wishlist_id", using: :btree
 
+  create_table "wishlist_orders", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "wishlist_statuses", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "wishlists", force: :cascade do |t|
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
-  add_index "wishlists", ["user_id"], name: "index_wishlists_on_user_id", using: :btree
 
   add_foreign_key "order_entries", "books"
   add_foreign_key "order_entries", "orders"
@@ -191,5 +199,4 @@ ActiveRecord::Schema.define(version: 20151130063628) do
   add_foreign_key "postings", "users"
   add_foreign_key "wishlist_entries", "books"
   add_foreign_key "wishlist_entries", "wishlists"
-  add_foreign_key "wishlists", "users"
 end

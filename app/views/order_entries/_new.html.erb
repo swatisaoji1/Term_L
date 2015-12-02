@@ -1,15 +1,20 @@
-  <form action="/order_entries" method="post">
-    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-    <div class="input-group">
-      <input value="1" class="form-control" min="1" max="<%=book.quantity%>" type="number" name="order_entry[quantity]" />
-      <div class="input-group-btn">
-        <input value="<%= book.id %>" type="hidden" name="order_entry[book_id]">
-        <input value="<%= book.price %>" type="hidden" name="order_entry[unit_cost]">
-        <input type="submit" name="commit" value="Add to Cart" class="btn btn-primary">
+  <% if book.quantity > 0 %>
+    <form action="/order_entries" method="post">
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+      <div class="input-group">
+        <input value="1" class="form-control" min="1" max="<%=book.quantity%>" type="number" name="order_entry[quantity]" />
+        <div class="input-group-btn">
+          <input value="<%= book.id %>" type="hidden" name="order_entry[book_id]">
+          <input value="<%= book.price %>" type="hidden" name="order_entry[unit_cost]">
+          <input type="submit" name="commit" value="Add to Cart" class="btn btn-primary">
+        </div>
       </div>
-    </div>
    </form>
-
+<% else %>
+  <div class="input-group">
+    <p style="color: #900">Out of Stock!</p>
+  </div>
+<% end %>
 <!--FORM IN ERB STYLE
 	
 <%= form_for @order_entry do |f| %>

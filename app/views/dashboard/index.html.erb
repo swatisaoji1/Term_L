@@ -11,6 +11,7 @@
 				<li role="presentation" class="active" ><a href="#postings" data-toggle="tab">My Postings</a></li>
 				<li role="presentation" ><a href="#notifications" data-toggle="tab" >My Orders</a></li>
 			  <li role="presentation"><a href="#profile" data-toggle="tab" >Profile</a></li>
+			  <li role="presentation"><a href="#returns" data-toggle="tab" >Returns</a></li>
 			  
 			</ul>
 		</div>
@@ -24,6 +25,9 @@
 				</div>
 				<div class="tab-pane" id="profile">
 					<%= render 'users/registrations/edit'%>
+				</div>
+				<div class="tab-pane" id="returns">
+					<%= render partial: "returns", object: returns , as: 'order_entries' %>
 				</div>
 			
 			</div>

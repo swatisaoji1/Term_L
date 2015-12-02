@@ -38,6 +38,10 @@ Rails.application.routes.draw do
     via:  'get',
     as:   :amazon_price
  
+   match '/order_enteries/:id',
+    to:   'dashboard#order_enteries',
+    via:  'get',
+    as:   :order_enteries
   
   root 'welcome#index'
   get '/MyCart' => 'welcome#mycart'
