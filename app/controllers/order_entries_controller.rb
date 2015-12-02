@@ -14,7 +14,12 @@ class OrderEntriesController < ApplicationController
     current_order_entries = @order.order_entries
     current_order_entries.each do |oe|
       if oe.book_id == order_entry_params[:book_id].to_i then
-        oe.quantity = oe.quantity + order_entry_params[:quantity].to_i
+        new_quantity = oe.quantity + order_entry_params[:quantity].to_i
+        if oe.book.quantity < new_quantity
+          redirect_to "/carts/show", :alert => "#{oe.book.title} out of stock!"
+          return    
+        end
+        oe.quantity = new_quantity
         oe.unit_cost = order_entry_params[:unit_cost]
         oe.save
         return
