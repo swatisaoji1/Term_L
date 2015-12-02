@@ -6,15 +6,15 @@
 <div class="container">
 
 	<%= bootstrap_form_for @book do |f| %>
-		<%= f.text_field :title, hide_label: true, placeholder: 'Title' %>
-		<%= f.text_field :author_list,hide_label: true, placeholder: 'Author/Authors' %>
-		<%= f.text_field :isbn, hide_label: true, placeholder: 'ISBN'%>
+		<%= f.text_field :title, hide_label: true, placeholder: 'Title', required: true%>
+		<%= f.text_field :author_list,hide_label: true, placeholder: 'Author/Authors' , required: true%>
+		<%= f.text_field :isbn, hide_label: true, placeholder: 'ISBN', required: true%>
 		<%= f.text_field :description, hide_label: true, placeholder: 'Tell us more about the book'%>
 	  	<%= f.text_field :image_path, hide_label: true, placeholder: 'Add URL to the image'%>
-		<%= f.text_field :price, hide_label: true, placeholder: 'Cost' %>
-		<%= f.text_field :quantity,hide_label: true, placeholder: 'Quantity' %>
-	    <%= f.collection_select :sale_type, Book::SALETYPES, :to_s, :to_s, :include_blank => true%>
-	    <%= f.collection_select :edition, Book::EDITION, :to_s, :to_s, :include_blank => true%>
+		<%= f.text_field :price, hide_label: true, placeholder: 'Cost' , required: true%>
+		<%= f.text_field :quantity,hide_label: true, placeholder: 'Quantity' , required: true%>
+	    <%= f.collection_select :sale_type, Book::SALETYPES, :to_s, :to_s%>
+	    <%= f.collection_select :edition, Book::EDITION, :to_s, :to_s%>
 	    <br />
 	    <p>Enter additional book criteria to allow customized search</p>
 	    <%= f.text_field :tag_list,hide_label: true, placeholder: 'Enter search tags for your book e.g. love story, best seller, adapted movie etc.' %>
