@@ -1,6 +1,6 @@
 class DashboardController < ApplicationController
   before_filter :authenticate_user!
-  helper_method :postings , :orders
+  helper_method :postings , :orders, :returns
   helper_method :get_order_enteries
   def index
     
@@ -13,6 +13,10 @@ class DashboardController < ApplicationController
   
   def orders
     @orders = Order.orders(current_user.id).order("created_at DESC")
+  end
+
+  def returns
+    @returns = OrderEntry.return_items(current_user.id).order("created_at DESC")
   end
   
   def order_enteries

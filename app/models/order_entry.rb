@@ -40,4 +40,8 @@ class OrderEntry < ActiveRecord::Base
     order.save
   end
 
+  def self.return_items(id)
+    OrderEntry.joins(:order, :book).where("orders.user_id = ? and books.sale_type = 'Renting'", id)
+  end
+
 end
