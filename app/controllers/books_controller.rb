@@ -74,7 +74,7 @@ class BooksController < ApplicationController
   def destroy
     logger.debug(params[:id])
     @book = Book.find(params[:id])
-    message = current_user.name << " Deleted the book " << @book.title 
+    @message = current_user.name << " Deleted the book " << @book.title 
     if @book.delete
       Pusher.trigger('test_channel', 'my_event', {
         message: @message
