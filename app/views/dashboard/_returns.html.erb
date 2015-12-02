@@ -26,6 +26,9 @@
 		          <p>Order placed on : <%= ret.created_at.to_date.strftime("%d %b, %Y") %></p>
 		          <p><strong>Due Date: <%= (ret.created_at.to_date + 10.days).strftime("%d %b, %Y") %></strong></p>
 		        </div>
+		        <div class="col-sm-6">
+		          <p><a href="/Returns/<%= ret.id %>">Return Book</a></p>
+		        </div>
 	     	</div>
 	     	<hr>
 	 	<% end %>

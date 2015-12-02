@@ -41,7 +41,7 @@ class OrderEntry < ActiveRecord::Base
   end
 
   def self.return_items(id)
-    OrderEntry.joins(:order, :book).where("orders.user_id = ? and books.sale_type = 'Renting'", id)
+    OrderEntry.joins(:order, :book).where("returned = 'f' and orders.user_id = ? and books.sale_type = 'Renting'", id)
   end
 
 end

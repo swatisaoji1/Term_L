@@ -51,6 +51,7 @@ Rails.application.routes.draw do
   get '/books' => 'books#index'
   get '/About' => 'welcome#about'
   get '/Orders' => 'orders#checkout'
+  get '/Returns/:id' => 'returns#return'
 
   # get '/cart' => 'cart#index'
   # get '/cart/clear' => 'cart#clearCart'
